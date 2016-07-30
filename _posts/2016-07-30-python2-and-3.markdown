@@ -1,0 +1,46 @@
+---
+layout: post
+title: "co-existence of python2 and python3 in osx"
+date: 2016-07-30 06:39:03 +0000
+categories: python2 python3 jupyter osx
+---
+
+## overall review of python2 in osx
+
+In the newest osx operation EI Capitan, python2 is pre-installed in the system in `/System/Library/Frameworks/Python.framework/Versions`. Take python2.7 for example. The path for python packages imported is `/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python`. As `/System` is under protection via SIP(System Integrity Protection), you can **NOT** make any changes in that folder.  When you run 
+
+```shell
+$ sudo pip install $(package_path)
+```
+
+in Terminal, the package is installed in `/Library/Python/2.7/site-packages` which can not be searched by  `import`. In my last post [install tensorflow on ei capitan](https://alanthink.github.io/blog/tensorflow/ei/capitan/2016/07/24/install-tensorflow-on-ei-capitan.html) I disabled SIP to solve this problem.
+
+## install python3
+
+With pip3, it is easy to install python3.
+
+```shell
+$ sudo pip3 install python
+```
+
+Here, python is installed in `/Library/Frameworks/Python.framework/Versions` without prefix `/System`. And when you install a package using the following script:
+
+```shell
+$ sudo pip install $(package_path)
+```
+
+This package is installed in `/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages`.
+
+## running
+
+Type `python` and `python3` to run python2 and python3 respectively.
+
+## install jupyter 
+
+After installing jupyter via pip3, when you run `jupyter notebook`. Python3 kernel is not an option. To solve this problem, it is enough to run the following scripts in Terminal:
+
+```shell
+$ cd /Library/Frameworks/Python.framework/Versions/3.5/bin
+$ sudo ./ipython kernelspec install-self
+```
+
