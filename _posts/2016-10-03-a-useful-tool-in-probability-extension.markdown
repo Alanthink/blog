@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "a-useful-tool-in-probability-extension"
+title: "a useful tool in probability extension"
 date: 2016-10-03 19:05:33 +0000
 categories: tool probability extension
 ---
 
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 ## Question
 
