@@ -7,7 +7,7 @@ categories: tool probability extension
 
 ## Question
 
-Suppose that $\mathscr{F}_0$ is a field and $P_1$ and $P_2$ are probability measures on $\sigma(\mathscr{F}_0)$. Show by the monotone class theorem that if $P_1$ and $P_2$ agree on $\mathscr{F}_0$, then they agree on $\sigma(\mathscr{F}_0)$. [Q3.13 from Probability and Measure]
+Suppose that \(\mathscr{F}_0\) is a field and $P_1$ and $P_2$ are probability measures on $\sigma(\mathscr{F}_0)$. Show by the monotone class theorem that if $P_1$ and $P_2$ agree on $\mathscr{F}_0$, then they agree on $\sigma(\mathscr{F}_0)$. [Q3.13 from Probability and Measure]
 
 ## Proof
 
