@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "co-existence of python2 and python3 in osx"
+title: "Co-existence of Python2 and Python3 in OSX"
 date: 2016-07-30 06:39:03 +0000
 categories: python2 python3 jupyter osx
 ---

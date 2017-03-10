@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "install tensorflow on ei capitan"
+title: "Install Tensorflow on Ei Capitan"
 date: 2016-07-24 09:22:54 +0000
 categories: Tensorflow EI Capitan
 ---
 
-## update numpy
+## Update numpy
 
 In order to install Tensorflow on EI Capitan, numpy needs to  be updated. However, numpy was installed in `/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python` which can not be modified even with root privilege. In EI Capitan, this mechanism is called __SIP (System Integrity Protection)__. Generally, the following folders can not be modified. 
 
@@ -42,7 +42,7 @@ Here I download numpy package first and then use pip to install it. What's more,
 $ sudo pip install --upgrade --target=/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/ $(numpy_package_path)
 ```
 
-## install Tensorflow
+## Install Tensorflow
 
 Again, I download tensorflow package first.
 

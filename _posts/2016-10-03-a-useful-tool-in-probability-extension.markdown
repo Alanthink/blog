@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "a useful tool in probability extension"
+title: "A Useful Tool in Probability Extension"
 date: 2016-10-03 19:05:33 +0000
 categories: tool probability extension
 ---
