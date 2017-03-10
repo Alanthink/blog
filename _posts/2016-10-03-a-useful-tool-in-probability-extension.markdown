@@ -26,8 +26,7 @@ Next, we are going to prove that \\( \mathscr{H} \\) is a monotone class. It suf
 
 We are going to prove the first one. The second one can be proved in a similar way.
 
-Let \\( A_{\infty} = \bigcup_{i=1}^{\infty} A_i \\). Then \\( P_1 (A_{\infty}) = \lim_{i\rightarrow \infty} P_1(A_i) = \lim_{i\rightarrow \infty} P_2(A_i) = P_2(A_{\infty}) \\).
-
+Let \\( A_{\infty} = \bigcup_{i=1}^{\infty} A_i \\). Then \\( P_1 (A_{\infty}) = \lim_{i\rightarrow \infty} P_1(A_i) = \lim_{i\rightarrow \infty} P_2(A_i) = P_2(A_{\infty}) \\). Hence, \\( A_{\infty} \in \mathscr{H} \\). The first property holds.
 
 This completes the proof that \\( \mathscr{H} \\) is a monotone class. By MONOTONE CLASS THEOREM, we have \\( \mathscr{H} \supset \sigma(\mathscr{F}_0) \\). 
 
