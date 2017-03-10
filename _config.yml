@@ -7,7 +7,7 @@
 
 # Site settings
 title: Alanthink
-email: taochao@indiana.edu
+email: user_name AT indiana DOT edu 
 description: > # this means to ignore newlines until "baseurl:"
         Record learnings from daily study and life.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
