@@ -87,6 +87,7 @@ e_warning() {
 # Everybody need some help
 initpost_help() {
 
+
 cat <<EOT
 ------------------------------------------------------------------------------
 INIT POST - A shortcut to create an initial structure for my posts.
