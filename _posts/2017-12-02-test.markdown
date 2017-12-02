@@ -3,6 +3,7 @@ layout: post
 title: Goal of this blog
 date: 2017-12-02 01:36:49 +0000
 categories:
+mathjax: true
 ---
 
 # Goal of this blog
