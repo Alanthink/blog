@@ -3,8 +3,9 @@ layout: post
 title: "test"
 date: 2017-12-02 01:36:49 +0000
 categories: 
+use_math: true
 ---
 
 # 这是一个测试
 
-$x + y = 900$. 
+$ x + y = 900 $. 
