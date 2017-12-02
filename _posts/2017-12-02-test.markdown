@@ -3,7 +3,6 @@ layout: post
 title: 这是一个测试
 date: 2017-12-02 01:36:49 +0000
 categories:
-mathjax: true 
 ---
 
 # 这是一个测试
