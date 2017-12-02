@@ -1,18 +1,10 @@
 ---
 layout: post
-title: 这是一个测试
+title: Goal of this blog
 date: 2017-12-02 01:36:49 +0000
 categories:
 ---
 
-# 这是一个测试
+# Goal of this blog
 
-$ x + y = 900 $. 
-
-$$
-\begin{equation}
-E =c m^2
-\end{equation}
-$$
-
-$x^45 + y^64 = 1$
+$x + y + z = v^3$
