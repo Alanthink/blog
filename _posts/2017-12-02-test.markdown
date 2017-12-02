@@ -16,3 +16,4 @@ E =c m^2
 \end{equation}
 $$
 
+$x^45 + y^64 = 1$
