@@ -18,3 +18,5 @@ github_username:  alanthink
 # Build settings
 markdown: kramdown
 
+
+theme: jekyll-theme-cayman
