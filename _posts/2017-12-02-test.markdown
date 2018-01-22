@@ -1,0 +1,17 @@
+---
+layout: post
+title: This is a test post
+date: 2017-12-02 01:36:49 +0000
+categories:
+---
+
+# Inline formulas
+
+$e^{ix} = \cos x + i \sin x$.
+
+
+# Display formulas
+
+$$
+\sum_{i = 1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}.
+$$
