@@ -30,7 +30,7 @@ In the newest osx operation EI Capitan, python2 is pre-installed in the system i
 $ sudo pip install $(package_path)
 ```
 
-in Terminal, the package is installed in `/Library/Python/2.7/site-packages` which can not be searched by  `import`. In my last post [install tensorflow on ei capitan](/blog/tensorflow/ei/capitan/install-tensorflow-on-ei-capitan/) I disabled SIP to solve this problem.
+in Terminal, the package is installed in `/Library/Python/2.7/site-packages` which can not be searched by  `import`. In my last post [install tensorflow on ei capitan](/blog/cs/install-tensorflow-on-ei-capitan/) I disabled SIP to solve this problem.
 
 ## Install Python3
 
