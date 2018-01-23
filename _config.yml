@@ -17,3 +17,5 @@ github_username:  alanthink
 
 # Build settings
 markdown: kramdown
+
+remote_theme: mmistakes/minimal-mistakes
