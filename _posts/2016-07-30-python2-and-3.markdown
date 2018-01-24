@@ -1,4 +1,5 @@
 ---
+excerpt: ""
 defaults:
   # _posts
   - scope:
