@@ -1,17 +1,6 @@
 ---
 excerpt: ""
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+comments: true
 title: This is a test post
 date: 2017-12-02 01:36:49 +0000
 categories:

@@ -1,17 +1,7 @@
 ---
 excerpt: ""
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+comments:	true
+share:	false
 title: Install Tensorflow on Ei Capitan
 date: 2016-07-24 09:22:54 +0000
 categories:

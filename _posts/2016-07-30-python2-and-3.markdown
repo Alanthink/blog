@@ -1,17 +1,6 @@
 ---
 excerpt: ""
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+comments: true
 title: Co-existence of Python2 and Python3 in OSX
 date: 2016-07-30 06:39:03 +0000
 categories:
