@@ -1,7 +1,6 @@
 ---
 excerpt: ""
 comments:	true
-share:	false
 title: Install Tensorflow on Ei Capitan
 date: 2016-07-24 09:22:54 +0000
 categories:
