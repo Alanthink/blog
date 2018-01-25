@@ -2,6 +2,8 @@
 main:
   - title: "Home"
     url: /
+  - title: "Personal Website"
+    url: https://alanthink.github.io/
   - title: "Archive"
     url: /year-archive/  
   # - title: "About"
