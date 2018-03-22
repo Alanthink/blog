@@ -59,7 +59,7 @@ n \exp\left( - \frac{\epsilon^2}{2 n \sigma^2 } \right).
 \end{equation}
 $$
 
-This bound is very loose since when $n$ goes to infinity, the bound will go to infinity too. It is useless at all! 
+This bound is very loose. Later, you will see why it is useless. 
 
 ## An alternative way
 
