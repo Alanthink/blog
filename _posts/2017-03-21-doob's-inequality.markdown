@@ -85,7 +85,7 @@ $$
 \end{align*}
 $$
 
-Since $\mathrm{E}[ \exp( \lambda X_t ) ] \geq \exp( \mathrm{E}[ \lambda X_t )] = 1$, sequence $\{\exp( \lambda S_t )\}_{t \geq 1} $ is a submartingale. (This is a good exercise. You can validate it by yourself.) By Doob's inequality, we further have  
+Since $\mathrm{E}[ \exp( \lambda X_t ) ] \geq \exp( \mathrm{E}[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By $\eqref{eq:doob-inequality}$, we further have  
 
 $$
 \begin{align*}
