@@ -2,6 +2,7 @@
 excerpt: ""
 comments: true
 title: An application of Doob's martingale inequality
+date: 2018-03-23 13:41:49 +0000
 categories:
   - math
 tags:
