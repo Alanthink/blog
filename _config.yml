@@ -5,7 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -53,6 +53,13 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
+search_provider          : algolia
+
+algolia:
+  application_id         : VBQWJ6EIUK # YOUR_APPLICATION_ID
+  index_name             : blog # YOUR_INDEX_NAME
+  search_only_api_key    : 0f4d83f3fd6f37874f9a92f4e91894e3 # YOUR_SEARCH_ONLY_API_KEY
+  powered_by             : true # true (default), false
 
 # SEO Related
 google_site_verification :
