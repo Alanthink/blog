@@ -76,6 +76,8 @@ GEM
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
+    jekyll-seo-tag (2.4.0)
+      jekyll (~> 3.3)
     jekyll-sitemap (1.2.0)
       jekyll (~> 3.3)
     jekyll-watch (2.0.0)
@@ -129,7 +131,11 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.12)
-  jekyll-algolia (~> 1.0)
+  jekyll-algolia
+  jekyll-feed
+  jekyll-paginate
+  jekyll-seo-tag
+  jekyll-sitemap
   minimal-mistakes-jekyll!
   rake (~> 10.0)
 
