@@ -5,7 +5,14 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    :  # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# Theme Settings
+#
+# Review documentation to determine if you should use `theme` or `remote_theme`
+# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
+
+# theme                  : "minimal-mistakes-jekyll"
+# remote_theme           : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -13,7 +20,7 @@ title                    : "Math&CS"
 title_separator          : "-"
 name                     : "Alanthink"
 description              : "Record learnings from study and daily life."
-url                      : "https://alanthink.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://alanthink.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/blog" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -53,7 +60,7 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
-search_provider          : algolia
+search_provider          : algolia # lunr (default), algolia
 algolia:
   application_id         : VBQWJ6EIUK # YOUR_APPLICATION_ID
   index_name             : blog # YOUR_INDEX_NAME
@@ -93,7 +100,7 @@ author:
   name             : "Alanthink"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Record learnings from study and daily life."
-  location         : "Bloomington"
+  location         :
   email            : "sdutaochao@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
