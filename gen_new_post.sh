@@ -23,6 +23,9 @@ done
 # Trim leading spaces
 TITLE="$(echo "${TITLE}" | sed -e 's/^[ \t]*//')"
 
+# Uppercase the first letter
+TITLE="$(tr '[:lower:]' '[:upper:]' <<< ${TITLE:0:1})${TITLE:1}"
+
 # Replace spaces in title with underscores
 TITLE_STRIPPED=${TITLE// /_}
 

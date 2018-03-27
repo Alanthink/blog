@@ -1,7 +1,7 @@
 ---
 excerpt: ""
 comments: true
-title: generate new posts by shell scripts
+title: Generate new posts by shell scripts
 categories:
   - blog build
 ---
@@ -10,7 +10,7 @@ categories:
 
 The scripts are modified from [@AamnahAkram](https://gist.github.com/aamnah/f89fca7906f66f6f6a12). For more related materials, you are suggested to visit the link.
 
-For the scripts provided here, I improved two positions. First, you can now create a new post using `./command.sh create a new post`. You don't need to explicitly specify a space using `./command.sh create\ a\ new\ post`. Second, I removed leading blank lines caused by `echo`.
+For the scripts provided here, I improved three positions. First, you can now create a new post using `./command.sh create a new post`. You don't need to explicitly specify a space using `./command.sh create\ a\ new\ post`. Second, I uppercased the first letter of the title which is traditional. Third, I removed leading blank lines caused by `echo`.
 
 For some parts of the scripts, you need to customize by yourself.
 
@@ -42,6 +42,9 @@ done
 # Trim leading spaces
 TITLE="$(echo "${TITLE}" | sed -e 's/^[ \t]*//')"
 
+# Uppercase the first letter
+TITLE="$(tr '[:lower:]' '[:upper:]' <<< ${TITLE:0:1})${TITLE:1}"
+
 # Replace spaces in title with underscores
 TITLE_STRIPPED=${TITLE// /_}
 
@@ -70,7 +73,7 @@ touch ${FILENAME}
 # add YAML front matter and trim leading blank line
 echo -e "
 ---
-excerpt: ""
+excerpt: \"\"
 comments: true
 title: ${TITLE}
 categories:
