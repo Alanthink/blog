@@ -5,6 +5,10 @@ title: This is a test post
 date: 2017-12-02 01:36:49 +0000
 categories:
   - math
+sidebar:
+  - title: "微信打赏"
+  - image: /images/wechat.jpg
+    image_alt: "image"
 ---
 
 ## Inline formulas

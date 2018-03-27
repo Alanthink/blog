@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "Tip me"
+    url: /_pages/tipme/
   - title: "Archive"
     url: /year-archive/
   # - title: "About"
