@@ -1,5 +1,5 @@
 ---
-excerpt: 
+excerpt: ""
 comments: true
 title: generate new posts by shell scripts
 categories:
@@ -12,7 +12,7 @@ The scripts are modified from [@AamnahAkram](https://gist.github.com/aamnah/f89f
 
 For the scripts provided here, I improved two positions. First, you can now create a new post using `./command.sh create a new post`. You don't need to explicitly specify a space using `./command.sh create\ a\ new\ post`. Second, I removed leading blank lines caused by `echo`.
 
-For some parts of the scripts, you need to customized by yourself.
+For some parts of the scripts, you need to customize by yourself.
 
 ## Scripts
 

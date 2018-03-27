@@ -51,7 +51,7 @@ touch ${FILENAME}
 # add YAML front matter and trim leading blank line
 echo -e "
 ---
-excerpt: ""
+excerpt: \"\"
 comments: true
 title: ${TITLE}
 categories:
