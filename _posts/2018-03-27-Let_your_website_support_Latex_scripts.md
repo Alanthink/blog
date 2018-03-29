@@ -19,7 +19,13 @@ To use it, just put the following code inside every header of html files.
 
 ```
 <script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); 
+  MathJax.Hub.Config({ 
+    TeX: { 
+      equationNumbers: { 
+        autoNumber: "all" 
+      } 
+    } 
+  }); 
 </script>
 <script type="text/x-mathjax-config">
  MathJax.Hub.Config({
@@ -28,6 +34,17 @@ MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
      processEscapes: true
    }
  });
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      eps: "{\\epsilon}",
+      E: "{\\mathrm{E}}",
+      Pr: "{\\mathrm{Pr}}"
+    }
+  }
+});
 </script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
 </script>
