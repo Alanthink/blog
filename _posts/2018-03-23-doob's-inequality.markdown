@@ -37,7 +37,7 @@ $$
 Also, it is useful to know the following facts:
 
 + $S_t$ is $\sqrt{t} \sigma$-subgaussian,
-+ and $\Pr[ X > \epsilon ] \leq \exp\left( \frac{ -\epsilon^2 }{2\sigma^2} \right)$.
++ and $\Pr[ X > \epsilon ] \leq \exp\left( - \frac{ \epsilon^2 }{2\sigma^2} \right)$.
 
 ## A naive way
 
