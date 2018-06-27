@@ -18,13 +18,17 @@ Let me first show their definitions from Wikipedia [[1]](#chernoff-bound). Note 
 Suppose $X_1, \dots, X_n$ are *i.i.d.* random variables supported on $[0, 1]$. Let $\mathrm{E}[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have 
 
 $$
+\begin{equation*}
 \Pr\left[ \bar{X} > \mu + \epsilon \right] \leq \left(  \left( \frac{\mu}{\mu + \epsilon} \right)^{\mu + \epsilon} \cdot \left( \frac{1 - \mu}{1 - \mu - \epsilon} \right)^{1 - \mu - \epsilon} \right)^n,
+\end{equation*}
 $$
 
 and 
 
 $$
+\begin{equation*}
 \Pr\left[ \bar{X} < \mu - \epsilon \right] \leq \left(  \left( \frac{\mu}{\mu - \epsilon} \right)^{\mu - \epsilon} \cdot \left( \frac{1 - \mu}{1 - \mu + \epsilon} \right)^{1 - \mu + \epsilon} \right)^n.
+\end{equation*}
 $$
 
 ### Multiplicative Chernoff Bound
@@ -32,18 +36,22 @@ $$
 Suppose $X_1, \dots, X_n$ are *i.i.d.* random variables supported on $[0, 1]$. Let $\mathrm{E}[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have 
 
 $$
+\begin{equation*}
 \Pr\left[ \bar{X} > (1 + \delta)\mu \right] \leq \left( \frac{e^{\delta}}{ (1 + \delta)^{(1 + \delta)} } \right)^{n \mu},
+\end{equation*}
 $$
 
 and 
 
 $$
+\begin{equation*}
 \Pr\left[ \bar{X} < (1 - \delta)\mu \right] \leq \left( \frac{e^{-\delta}}{ (1 - \delta)^{(1 - \delta)} } \right)^{n \mu}.
+\end{equation*}
 $$
 
 ## Answer
 
-If you check their proofs, you will find that Multiplicative Chernoff uses one more relaxation by $1 + x \leq e^x$ in its proof. So technically additive chernoff bound is stronger than multiplicative chernoff Bound which means I agree with the second answer in [[2]](#stack-exchange).
+If you check their proofs, you will find that Multiplicative Chernoff uses one more relaxation by $1 + x \leq e^x$ in its proof. So technically additive chernoff bound is stronger than multiplicative chernoff bound which means I agree with the second answer in [[2]](#stack-exchange).
 
 ## However...
 
@@ -60,7 +68,9 @@ $$
 where the last but second inequality is due Hoeffding's lemma. By letting $t = 4\epsilon$, we get 
 
 $$
+\begin{equation*}
 \Pr\left[ \bar{X} > \mu + \epsilon \right] \leq e^{ -2 n \epsilon^2 }.
+\end{equation*}
 $$
 
 This is a weaker additive chernoff bound partly due to Hoeffding's lemma holds for any domain with length at most 1. So it does not make most use of domain $[0, 1]$. And if you are referring this version of additive chernoff bound, then it is weaker than the multiplicative chernoff bound.
