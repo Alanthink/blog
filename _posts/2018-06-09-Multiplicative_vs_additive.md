@@ -55,7 +55,7 @@ If you check their proofs, you will find that Multiplicative Chernoff uses one m
 
 ## However...
 
-In practice, usuallly we are not referring this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left[ \bar{X} > \mu + \epsilon \right]$ is as the following:
+In practice, usuallly we are not referring to this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left[ \bar{X} > \mu + \epsilon \right]$ is as the following:
 
 $$
 \begin{align*}
@@ -65,7 +65,7 @@ $$
 \end{align*},
 $$
 
-where the last but second inequality is due Hoeffding's lemma. By letting $t = 4\epsilon$, we get 
+where the last but second inequality is due to Hoeffding's lemma. By letting $t = 4\epsilon$, we get 
 
 $$
 \begin{equation*}
@@ -73,7 +73,7 @@ $$
 \end{equation*}
 $$
 
-This is a weaker additive chernoff bound partly due to Hoeffding's lemma holds for any domain with length at most 1. So it does not make most use of domain $[0, 1]$. And if you are referring this version of additive chernoff bound, then it is weaker than the multiplicative chernoff bound.
+This is a weaker additive chernoff bound partly due to Hoeffding's lemma holds for any domain with length at most 1. So it does not make most use of domain $[0, 1]$. And if you are referring to this version of additive chernoff bound, then it is weaker than the multiplicative chernoff bound. This phenomenon can be observed when $\mu \ll 1$.
 
 ## References
 
