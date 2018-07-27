@@ -4,4 +4,4 @@ author_profile: true
 title: ""
 ---
 
-## Thanks, just for fun 😊！
+## Thanks, this blog is built for fun 😊！
