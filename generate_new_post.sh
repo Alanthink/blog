@@ -13,21 +13,15 @@
 JEKYLL_POSTS_DIR='./_posts/'
 
 # Post title
-TITLE=""
+TITLE=''
 
 for var in "$@"
 do
     TITLE=$TITLE" $var"
 done
 
-# Trim leading spaces
-TITLE="$(echo "${TITLE}" | sed -e 's/^[ \t]*//')"
-
-# Uppercase the first letter
-TITLE="$(tr '[:lower:]' '[:upper:]' <<< ${TITLE:0:1})${TITLE:1}"
-
-# Replace spaces in title with underscores
-TITLE_STRIPPED=${TITLE// /_}
+# Replace spaces in title with hyphen
+TITLE_STRIPPED=${TITLE// /-}
 
 # Permalink
 PERMALINK=${TITLE_STRIPPED}
@@ -39,7 +33,7 @@ DATE=`date +%Y-%m-%d`
 TYPE='.md'
 
 # File name structure
-FILENAME=${DATE}-${TITLE_STRIPPED}${TYPE}
+FILENAME=${DATE}${TITLE_STRIPPED}${TYPE}
 
 
 # COMMANDS

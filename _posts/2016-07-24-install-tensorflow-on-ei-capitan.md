@@ -15,17 +15,9 @@ tags:
 In order to install Tensorflow on EI Capitan, numpy needs to  be updated. However, numpy was installed in `/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python` which can not be modified even with root privilege. In EI Capitan, this mechanism is called __SIP (System Integrity Protection)__. Generally, the following folders can not be modified. 
 
 * `/System`
-
-
 * `/usr`
-
-
 * `/bin`
-
-
 * `/sbin`
-
-
 * Apps that are pre-installed with OS X
 
 My solution is firstly to disable SIP and then update numpy. This solution is __risky__ as disabling SIP is an operation that I am not familiar with.

@@ -6,15 +6,17 @@ categories:
   - blog build
 ---
 
-## Notes
+The script is modified from [@AamnahAkram](https://gist.github.com/aamnah/f89fca7906f66f6f6a12). For more related materials, you are suggested to visit the link.
 
-The scripts are modified from [@AamnahAkram](https://gist.github.com/aamnah/f89fca7906f66f6f6a12). For more related materials, you are suggested to visit the link.
+For the script provided here, I made three small modifications.
 
-For the scripts provided here, I improved three positions. First, you can now create a new post using `./command.sh create a new post`. You don't need to explicitly specify a space using `./command.sh create\ a\ new\ post`. Second, I uppercased the first letter of the title which is traditional. Third, I removed leading blank lines caused by `echo`.
+*  You can now create a new post using `./command.sh [your post name]` while not explicitly specifying spaces using `./command.sh [your\ post\ name]`
+*  Spaces in title are replaced with hyphen
+*  Leading blank lines caused by `echo` are removed
 
-For some parts of the scripts, you need to customize by yourself.
+For further requirements, you may need to customize it by yourself.
 
-## Scripts
+## Script
 
 ```
 #!/bin/bash
@@ -42,11 +44,8 @@ done
 # Trim leading spaces
 TITLE="$(echo "${TITLE}" | sed -e 's/^[ \t]*//')"
 
-# Uppercase the first letter
-TITLE="$(tr '[:lower:]' '[:upper:]' <<< ${TITLE:0:1})${TITLE:1}"
-
-# Replace spaces in title with underscores
-TITLE_STRIPPED=${TITLE// /_}
+# Replace spaces in title with hyphen
+TITLE_STRIPPED=${TITLE// /-}
 
 # Permalink
 PERMALINK=${TITLE_STRIPPED}

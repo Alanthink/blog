@@ -11,7 +11,7 @@ tags:
 
 ## Definitions
 
-Let me first show their definitions from Wikipedia [[1]](#chernoff-bound). Note that the domain of random variables can be extended from $\\{ 0, 1 \\}$ to $[0, 1]$ just noting that $\mathrm{E}\left[ e^{tX_i} \right] \leq E[X_i] \cdot e^t + (1 - \mathrm{E}[X_i])$.
+Let me first show their definitions from Wikipedia [[1]](#chernoff-bound). Note that the domain of random variables can be extended from $\\{ 0, 1 \\}$ to $[0, 1]$ just noting that $\mathrm{E} \left[ e^{tX_i} \right] \leq \mathrm{E}[X_i] \cdot e^t + (1 - \mathrm{E}[X_i])$.
 
 ### Additive Chernoff Bound
 
