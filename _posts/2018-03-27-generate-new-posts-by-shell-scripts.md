@@ -34,15 +34,12 @@ For further requirements, you may need to customize it by yourself.
 JEKYLL_POSTS_DIR='./_posts/'
 
 # Post title
-TITLE=""
+TITLE=''
 
 for var in "$@"
 do
     TITLE=$TITLE" $var"
 done
-
-# Trim leading spaces
-TITLE="$(echo "${TITLE}" | sed -e 's/^[ \t]*//')"
 
 # Replace spaces in title with hyphen
 TITLE_STRIPPED=${TITLE// /-}
@@ -57,7 +54,7 @@ DATE=`date +%Y-%m-%d`
 TYPE='.md'
 
 # File name structure
-FILENAME=${DATE}-${TITLE_STRIPPED}${TYPE}
+FILENAME=${DATE}${TITLE_STRIPPED}${TYPE}
 
 
 # COMMANDS
