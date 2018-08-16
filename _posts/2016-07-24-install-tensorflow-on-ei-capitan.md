@@ -1,7 +1,7 @@
 ---
 excerpt: ""
 comments:	true
-title: Install Tensorflow on Ei Capitan
+title: Install Tensorflow on Ei Capitan [Deprecated]
 date: 2016-07-24 09:22:54 +0000
 categories:
   - cs
