@@ -1,7 +1,7 @@
 ---
 excerpt: ""
 comments: true
-title: "Multiplicative Chernoff vs Additive Chernoff: which one is stronger?"
+title: "Multiplicative Chernoff vs. additive Chernoff: which one is stronger?"
 categories:
   - math
 tags:
@@ -9,68 +9,52 @@ tags:
   - probability
 ---
 
-## Definitions
+Let me first show their definitions from Wikipedia [[1]](#chernoff-bound). Note that the domain of random variables can be extended from $\\{ 0, 1 \\}$ to $[0, 1]$ just noting that $\E \left[ e^{tX_i} \right] \leq \E[X_i] \cdot e^t + (1 - \E[X_i])$.
 
-Let me first show their definitions from Wikipedia [[1]](#chernoff-bound). Note that the domain of random variables can be extended from $\\{ 0, 1 \\}$ to $[0, 1]$ just noting that $\mathrm{E} \left[ e^{tX_i} \right] \leq \mathrm{E}[X_i] \cdot e^t + (1 - \mathrm{E}[X_i])$.
+### Additive Chernoff bound
 
-### Additive Chernoff Bound
-
-Suppose $X_1, \dots, X_n$ are *i.i.d.* random variables supported on $[0, 1]$. Let $\mathrm{E}[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have 
+Suppose $X_1, \dots, X_n$ are *i.i.d.* random variables supported on $[0, 1]$. Let $\E[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have
 
 $$
-\begin{equation*}
-\Pr\left[ \bar{X} > \mu + \epsilon \right] \leq \left(  \left( \frac{\mu}{\mu + \epsilon} \right)^{\mu + \epsilon} \cdot \left( \frac{1 - \mu}{1 - \mu - \epsilon} \right)^{1 - \mu - \epsilon} \right)^n,
-\end{equation*}
+\Pr\left[ \bar{X} > \mu + \eps \right] \leq \left(  \left( \frac{\mu}{\mu + \eps} \right)^{\mu + \eps} \cdot \left( \frac{1 - \mu}{1 - \mu - \eps} \right)^{1 - \mu - \eps} \right)^n,
 $$
 
 and 
 
 $$
-\begin{equation*}
-\Pr\left[ \bar{X} < \mu - \epsilon \right] \leq \left(  \left( \frac{\mu}{\mu - \epsilon} \right)^{\mu - \epsilon} \cdot \left( \frac{1 - \mu}{1 - \mu + \epsilon} \right)^{1 - \mu + \epsilon} \right)^n.
-\end{equation*}
+\Pr\left[ \bar{X} < \mu - \eps \right] \leq \left(  \left( \frac{\mu}{\mu - \eps} \right)^{\mu - \eps} \cdot \left( \frac{1 - \mu}{1 - \mu + \eps} \right)^{1 - \mu + \eps} \right)^n.
 $$
 
 ### Multiplicative Chernoff Bound
 
-Suppose $X_1, \dots, X_n$ are *i.i.d.* random variables supported on $[0, 1]$. Let $\mathrm{E}[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have 
+Suppose $X_1, \dots, X_n$ are *i.i.d.* random variables supported on $[0, 1]$. Let $\E[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have 
 
 $$
-\begin{equation*}
 \Pr\left[ \bar{X} > (1 + \delta)\mu \right] \leq \left( \frac{e^{\delta}}{ (1 + \delta)^{(1 + \delta)} } \right)^{n \mu},
-\end{equation*}
 $$
 
 and 
 
 $$
-\begin{equation*}
 \Pr\left[ \bar{X} < (1 - \delta)\mu \right] \leq \left( \frac{e^{-\delta}}{ (1 - \delta)^{(1 - \delta)} } \right)^{n \mu}.
-\end{equation*}
 $$
 
-## Answer
+If you check their proofs in wikipedia, you will find that multiplicative Chernoff uses one more relaxation by $1 + x \leq e^x$. So technically additive chernoff bound is stronger than multiplicative chernoff bound which means I agree with the second answer in [[2]](#stack-exchange).
 
-If you check their proofs, you will find that Multiplicative Chernoff uses one more relaxation by $1 + x \leq e^x$ in its proof. So technically additive chernoff bound is stronger than multiplicative chernoff bound which means I agree with the second answer in [[2]](#stack-exchange).
-
-## However...
-
-In practice, usuallly we are not referring to this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left[ \bar{X} > \mu + \epsilon \right]$ is as the following:
+However, in practice, usuallly we are not referring to this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left[ \bar{X} > \mu + \eps \right]$ is as the following:
 
 $$
-\begin{align*}
-\Pr\left[ \bar{X} > \mu + \epsilon \right] & \leq \frac{ \mathrm{E}[\exp(t (X_i - \mu) )] }{ \exp(t n \epsilon) } \\
-& = \frac{ \prod_{i = 1}^n \mathrm{E}[ \exp(t (X_i - \mu) )] }{ \exp(tn \epsilon) } \\
-& \leq \exp( n(t^2/8 - t\epsilon ) ) 
-\end{align*},
+\begin{align} \label{eq:sample}
+\Pr\left[ \bar{X} > \mu + \eps \right] & \leq \frac{ \E[\exp(t (X_i - \mu) )] }{ \exp(t n \eps) } \\
+& = \frac{ \prod_{i = 1}^n \E[ \exp(t (X_i - \mu) )] }{ \exp(tn \eps) } \\
+& \leq \exp( n(t^2/8 - t\eps ) ) ,
+\end{align}
 $$
 
-where the last but second inequality is due to Hoeffding's lemma. By letting $t = 4\epsilon$, we get 
+where the last but second inequality is due to Hoeffding's lemma. By letting $t = 4\eps$, we get 
 
 $$
-\begin{equation*}
-\Pr\left[ \bar{X} > \mu + \epsilon \right] \leq e^{ -2 n \epsilon^2 }.
-\end{equation*}
+\Pr\left[ \bar{X} > \mu + \eps \right] \leq e^{ -2 n \eps^2 }.
 $$
 
 This is a weaker additive chernoff bound partly due to Hoeffding's lemma holds for any domain with length at most 1. So it does not make most use of domain $[0, 1]$. And if you are referring to this version of additive chernoff bound, then it is weaker than the multiplicative chernoff bound. This phenomenon can be observed when $\mu \ll 1$.
