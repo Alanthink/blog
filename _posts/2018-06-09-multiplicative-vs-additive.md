@@ -44,11 +44,11 @@ If you check their proofs in wikipedia, you will find that multiplicative Cherno
 However, in practice, usuallly we are not referring to this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left( \bar{X} > \mu + \eps \right)$ is as the following:
 
 $$
-\begin{align} \label{eq:sample}
+\begin{align*}
 \Pr\left( \bar{X} > \mu + \eps \right) & \leq \frac{ \E[\exp(t (X_i - \mu) )] }{ \exp(t n \eps) } \\
 & = \frac{ \prod_{i = 1}^n \E[ \exp(t (X_i - \mu) )] }{ \exp(tn \eps) } \\
 & \leq \exp( n(t^2/8 - t\eps ) ) ,
-\end{align}
+\end{align*}
 $$
 
 where the last but second inequality is due to Hoeffding's lemma. By letting $t = 4\eps$, we get 

@@ -8,11 +8,10 @@ categories:
 
 The script is modified from [@AamnahAkram](https://gist.github.com/aamnah/f89fca7906f66f6f6a12). For more related materials, you are suggested to visit the link.
 
-For the script provided here, I made three small modifications.
-
-*  You can now create a new post using `./command.sh YOUR POST NAME` instead of explicitly specifying spaces using `./command.sh YOUR\ POST\ NAME`
-*  Spaces in title are replaced with hyphens
-*  Leading blank lines caused by `echo` are removed
+For the script provided here, I made three small modifications:
+*  you can now create a new post using `./command.sh YOUR POST NAME` instead of explicitly specifying spaces using `./command.sh YOUR\ POST\ NAME`;
+*  spaces in title are replaced with hyphens;
+*  leading blank lines caused by `echo` are removed.
 
 ```bash
 #!/bin/bash

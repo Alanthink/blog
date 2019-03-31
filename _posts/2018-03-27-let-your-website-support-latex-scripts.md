@@ -31,9 +31,10 @@ To use MaxJax in your web pages, you only need to put several lines of codes in 
       },
       Macros: {
         eps: "{\\epsilon}",
-        E: "{\\mathrm{E}}",
-        Pr: "{\\mathrm{Pr}}"
-      } 
+        E: "{\\mathbb{E}}",
+        Pr: "{\\mathbb{P}}"
+      },
+      extensions: ["AMSmath.js", "AMSsymbols.js"]
     } 
   }); 
 </script>
