@@ -10,15 +10,11 @@ The script is modified from [@AamnahAkram](https://gist.github.com/aamnah/f89fca
 
 For the script provided here, I made three small modifications.
 
-*  You can now create a new post using `./command.sh [your post name]` while not explicitly specifying spaces using `./command.sh [your\ post\ name]`
-*  Spaces in title are replaced with hyphen
+*  You can now create a new post using `./command.sh YOUR POST NAME` instead of explicitly specifying spaces using `./command.sh YOUR\ POST\ NAME`
+*  Spaces in title are replaced with hyphens
 *  Leading blank lines caused by `echo` are removed
 
-For further requirements, you may need to customize it by yourself.
-
-## Script
-
-```
+```bash
 #!/bin/bash
 # About: Bash script to create new Jekyll posts
 # Author: @AamnahAkram
@@ -27,8 +23,6 @@ For further requirements, you may need to customize it by yourself.
 
 # VARIABLES
 ######################################################
-
-# Get current working directory
 
 # Define the post directory (where to create the file)
 JEKYLL_POSTS_DIR='./_posts/'
@@ -43,9 +37,6 @@ done
 
 # Replace spaces in title with hyphen
 TITLE_STRIPPED=${TITLE// /-}
-
-# Permalink
-PERMALINK=${TITLE_STRIPPED}
 
 # Date
 DATE=`date +%Y-%m-%d`
