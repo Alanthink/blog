@@ -37,17 +37,17 @@ $$
 Also, it is useful to know the following facts:
 
 + $S_t$ is $\sqrt{t} \sigma$-subgaussian,
-+ and $\Pr[ X > \eps ] \leq \exp\left( - \frac{ \eps^2 }{2\sigma^2} \right)$.
++ and $\Pr( X > \eps ) \leq \exp\left( - \frac{ \eps^2 }{2\sigma^2} \right)$.
 
 ## A naive way
 
 Obviously, we can use a union bound to give a naive bound. 
 
-For each $t$, since $S_t$ is $\sqrt{t} \sigma$-subgaussian we have $\Pr[ S_t > \eps ] \leq \exp\left( - \frac{\eps^2}{2 t \sigma^2} \right)$. Via a union bound, we get
+For each $t$, since $S_t$ is $\sqrt{t} \sigma$-subgaussian we have $\Pr( S_t > \eps ) \leq \exp\left( - \frac{\eps^2}{2 t \sigma^2} \right)$. Via a union bound, we get
 
 $$
 \begin{equation*}
-\Pr\left[ \max_{1 \leq t \leq n} S_t > \eps \right] \leq \sum_{t = 1}^n \exp\left( - \frac{\eps^2}{2 t \sigma^2 } \right),
+\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) \leq \sum_{t = 1}^n \exp\left( - \frac{\eps^2}{2 t \sigma^2 } \right),
 \end{equation*}
 $$
 
@@ -71,7 +71,7 @@ Suppose the sequence $T_1, \dots, T_n$ is a submartingale, taking non-negative v
 
 $$
 \begin{equation} \label{eq:doob-inequality}
-\Pr\left[ \max_{1\leq t \leq n} T_t > \eps \right] \leq \frac{ \textrm{E}[T_n] }{\eps}. 
+\Pr\left( \max_{1\leq t \leq n} T_t > \eps \right) \leq \frac{ \textrm{E}[T_n] }{\eps}. 
 \end{equation}
 $$
 
@@ -81,7 +81,7 @@ Using standard Chernoff's method, for any $\lambda > 0$, we have
 
 $$
 \begin{align*}
-\Pr\left[ \max_{1 \leq t \leq n} S_t > \eps \right ] & = \Pr\left[ \max_{1 \leq t \leq n} \exp(\lambda S_t) > \exp( \lambda \eps) \right ].
+\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) & = \Pr\left( \max_{1 \leq t \leq n} \exp(\lambda S_t) > \exp( \lambda \eps) \right ).
 \end{align*}
 $$
 
@@ -89,7 +89,7 @@ Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \mathrm{E}[ \lambda X_t )] = 1$, seq
 
 $$
 \begin{align*}
-\Pr\left[ \max_{1 \leq t \leq n} S_t > \eps \right] & \leq \frac{ \mathrm{E}[\exp(\lambda S_n )] }{ \exp(\lambda \eps) } \\
+\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) & \leq \frac{ \mathrm{E}[\exp(\lambda S_n )] }{ \exp(\lambda \eps) } \\
 & = \frac{ \prod_{t = 1}^n \mathrm{E}[ \exp(\lambda X_t )] }{ \exp(\lambda \eps) } \\
 & \leq \exp\left( \frac{\lambda^2 \sigma^2 n}{2} - \lambda \eps \right),
 \end{align*} 
@@ -100,7 +100,7 @@ where the second equality is due to the mutual indenpendency of $X_t$'s, and the
 The minimum is achieved when $\lambda = \frac{\eps}{ \sigma^2 n}$. So we finally get
 
 $$
-\Pr\left[ \max_{1 \leq t \leq n} S_t > \eps \right] \leq \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right),
+\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) \leq \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right),
 $$
 
 which is only one $n$-th of \eqref{eq:union-bound}!

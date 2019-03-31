@@ -99,7 +99,7 @@ analytics:
 author:
   name             : "Alanthink"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Record learnings from study and daily life."
+  bio              : "Record learnings from study and daily life"
   location         :
   email            : "sdutaochao@gmail.com"
   uri              :
