@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "$(\\Omega, \\mathcal{F}, \\mathbb{P})$"
+title                    : "Probability Space"
 title_separator          : "-"
 name                     : "Alanthink"
 description              : "Record learnings from study and daily life"
