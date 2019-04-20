@@ -3,6 +3,8 @@ excerpt: ""
 comments: true
 title: Support $\LaTeX$ on websites
 categories:
+  - cs
+tags:
   - blog build
 ---
 
