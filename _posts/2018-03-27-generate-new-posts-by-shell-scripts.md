@@ -3,6 +3,8 @@ excerpt: ""
 comments: true
 title: Generate new posts by shell scripts
 categories:
+  - cs
+tags:
   - blog build
 ---
 
