@@ -61,10 +61,9 @@ Hence a stationary deterministic Markov policy $\pi$ can be formally defined by 
 It can be shown that
 <div class="theorem">
 There exists a stationary deterministic Markov policy $\pi$ such that
-
-$$
+\[
 J_{\pi}(\theta^{\star}) = J_{\star}(\theta^{\star}).
-$$
+\]
 </div>
 
 Therefore, in the subsequent material, it suffices to look at policies which are stationary, deterministic and Markov.
@@ -106,7 +105,7 @@ Thompson Sampling is a kind of Bayesian method to handle reinforcement learning 
 
 Thompson Sampling is naturally appealing and all it needs is an appropriate prior distribution over the unknown parameters.
 
-With this background, we can define *Bayesian regret* which can be written as 
+With this background, we can define *Bayesian regret* which can be written as
 
 $$
 \begin{align}
