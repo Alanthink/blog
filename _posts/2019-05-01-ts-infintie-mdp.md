@@ -37,20 +37,20 @@ At time step $t$, we use $H_t = (s_0, a_1, s_1, \dots, a_t, s_t)$ to denote the 
 When the underlying model has transition probability $\theta^{\star}$, we use 
 
 $$
-J_{\pi}( \theta^{\star} ) \eqdef \E \left[ \sum_{t = 1}^T c(s_{t - 1}, a_t^{\pi}) \right]
+J_{\pi}( \theta^{\star} ) \eqdef \frac{1}{T} \cdot \E \left[ \sum_{t = 1}^T c(s_{t - 1}, a_t^{\pi}) \right]
 $$
 
-to denote the cost incurred by the agent using policy $\pi$, where $a_t^{\pi}$ represents the action taken by the policy at time $t$. Here, the expectation is taken with respect to the randomness of the policy and the transition probability. For simplicity, I will drop the dependency of policy when it is clear from the context.
+to denote the cost incurred by the agent using policy $\pi$ per step/action, where $a_t^{\pi}$ represents the action taken by the policy at time $t$. Here, the expectation is taken with respect to the randomness of the policy and the transition probability. For simplicity, I will drop the dependency of policy when it is clear from the context.
 
 We say a policy $\pi$ is *optimal* if it satisfies 
 
 $$
-J_{\pi}(\theta^{\star}) = \min_{\pi'} \E \left[ \sum_{t = 1}^T c(s_{t - 1}, a_t^{\pi'}) \right].
+J_{\pi}(\theta^{\star}) = \min_{\pi'} \frac{1}{T} \cdot \E \left[ \sum_{t = 1}^T c(s_{t - 1}, a_t^{\pi'}) \right].
 $$
 
 Note that $c(\cdot, \cdot) \in [0, 1]$. Hence $J_{\pi}(\theta^{\star}) \in [0, 1]$.
 
-We use $J_{\star}(\theta^{\star})$ to denote the minimum cost.
+We use $J_{\star}(\theta^{\star})$ to denote the minimum cost per action/step.
 
 ### Stationary deterministic Markov policy
 
