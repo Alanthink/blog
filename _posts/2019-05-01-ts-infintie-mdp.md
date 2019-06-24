@@ -13,7 +13,7 @@ tags:
 
 In this post, I will present how to bound the regret in an infinite undiscounted Markov Decision Process (MDP) using some appropriate policy. Note that recently MDP has become the most famous model-based model to handle reinforcement learning problems.
 
-To warm up, I will first go over the basic settings which I am currently talking about. Then I will introduce the general schema of Thompson Sampling algorithm. Finally, I will describe the policy which I am going to use and present the theoretical guarantee of this policy. The last part will be deferred to the next post.
+To warm up, I will first go over the basic settings which I am currently talking about. Then I will introduce the general schema of Thompson Sampling algorithm. Finally, I will describe the policy which I am going to use and present the theoretical guarantee of this policy. The last part will be deferred to the following posts.
 
 ## Basic settings
 
