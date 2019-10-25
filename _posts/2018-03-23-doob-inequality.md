@@ -71,7 +71,7 @@ Suppose the sequence $T_1, \dots, T_n$ is a submartingale, taking non-negative v
 
 $$
 \begin{equation} \label{eq:doob-inequality}
-\Pr\left( \max_{1\leq t \leq n} T_t > \eps \right) \leq \frac{ \textrm{E}[T_n] }{\eps}. 
+\Pr\left( \max_{1\leq t \leq n} T_t > \eps \right) \leq \frac{ \E[T_n] }{\eps}. 
 \end{equation}
 $$
 
@@ -85,12 +85,12 @@ $$
 \end{align*}
 $$
 
-Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \mathrm{E}[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By \eqref{eq:doob-inequality}, we further have  
+Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \E[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By \eqref{eq:doob-inequality}, we further have  
 
 $$
 \begin{align*}
-\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) & \leq \frac{ \mathrm{E}[\exp(\lambda S_n )] }{ \exp(\lambda \eps) } \\
-& = \frac{ \prod_{t = 1}^n \mathrm{E}[ \exp(\lambda X_t )] }{ \exp(\lambda \eps) } \\
+\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) & \leq \frac{ \E[\exp(\lambda S_n )] }{ \exp(\lambda \eps) } \\
+& = \frac{ \prod_{t = 1}^n \E[ \exp(\lambda X_t )] }{ \exp(\lambda \eps) } \\
 & \leq \exp\left( \frac{\lambda^2 \sigma^2 n}{2} - \lambda \eps \right),
 \end{align*} 
 $$
