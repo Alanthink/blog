@@ -16,30 +16,37 @@
 <!-- Favicon head tag -->
 <link rel="icon" href="/blog/blog_icon.ico" type="image/x-icon">
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      processEscapes: true
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [ ['$','$'] ],
+    processEscapes: true,
+    tags: "ams",
+    macros: {
+      eps: "{\\epsilon}",
+      E: "{\\mathbb{E}}",
+      Pr: "{\\mathbb{P}}",
+      cond: "{~|~}",
+      br: "{\\mathrm{BR}}",
+      eqdef: "{\\,\\mathbin{\\stackrel{\\rm def}{=}} \\,}"
     },
-    TeX: { 
-      equationNumbers: { 
-        autoNumber: "AMS" 
-      },
-      Macros: {
-        eps: "{\\epsilon}",
-        E: "{\\mathbb{E}}",
-        Pr: "{\\mathbb{P}}",
-        cond: "{~|~}",
-        br: "{\\mathrm{BR}}",
-        eqdef: "{\\,\\mathbin{\\stackrel{\\rm def}{=}} \\,}"
-      },
-      extensions: ["AMSmath.js", "AMSsymbols.js"]
-    } 
-  }); 
+    autoload: {
+      color: [],
+      colorV2: ['color']
+    },
+    packages: {'[+]': ['noerrors']}
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  loader: {
+    load: ['[tex]/noerrors']
+  }
+};
 </script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML">
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
 
 <style>
