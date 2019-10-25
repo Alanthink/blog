@@ -18,7 +18,7 @@ $$
 
 ## Configuration
 
-To use MaxJax in your web pages, you only need to put several lines of codes in the `<head>` block of your html document. The following are the ones I am using. Basically, `tex2jax` tells the engine what are the delimiters for formulas. By default, MaxJax doesn't support \$\$ as there are so many such symbols in websites. So after turning this option on, you need to use `processEscapes: true` to tell the engine that `\$` represents one single dollar symbol. `TeX` tells the engine how to render formulas where you can specify macros.
+To use MaxJax in your web pages, you only need to put several lines of codes in the `<head></head>` block of your html document. The following is the one I am using. Basically, `tex2jax` tells the engine what are the delimiters for formulas. By default, MaxJax doesn't support `$$` inline equations as it usually represents US dollar. So after turning this option on, you need to use `processEscapes: true` to tell the engine that only `\$` represents one single dollar symbol. `TeX` tells the engine how to render formulas where you can specify macros.
 
 ```html
 <script type="text/x-mathjax-config">
@@ -27,27 +27,31 @@ To use MaxJax in your web pages, you only need to put several lines of codes in 
       inlineMath: [ ['$','$'] ],
       processEscapes: true
     },
-    TeX: { 
-      equationNumbers: { 
-        autoNumber: "AMS" 
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
       },
       Macros: {
         eps: "{\\epsilon}",
         E: "{\\mathbb{E}}",
-        Pr: "{\\mathbb{P}}"
+        Pr: "{\\mathrm{Pr}}",
+        cond: "{~|~}",
+        br: "{\\mathrm{BR}}",
+        eqdef: "{\\,\\mathbin{\\stackrel{\\rm def}{=}} \\,}"
       },
       extensions: ["AMSmath.js", "AMSsymbols.js"]
-    } 
-  }); 
+    }
+  });
 </script>
 <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/latest.js?config=TeX-AMS_SVG">
 </script>
 ```
 
-Another feature I like is MaxJax by default also supports cross references outside formula delimiters.
+Another feature of MaxJax I like is that MaxJax by default also supports cross references. I prefer using cross references in math delimiters, otherwise you have to use `\\` to specify a backslash, which is a pain.
 
-If you are running a blog, a convenient way is to put this script in the header file that are included by every html file.
+If you are running a blog, a convenient way is to put this script in the file that is included in the `<head></head>` block of every html file.
 
 For more details of the configuration, you can check the [documentation](http://docs.mathjax.org/en/latest/tex.html).
 
+Update: MathJax now has updated to Version 3. 
