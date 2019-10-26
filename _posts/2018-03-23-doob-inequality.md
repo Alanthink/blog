@@ -85,7 +85,7 @@ $$
 \end{align*}
 $$
 
-Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \E[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By \eqref{eq:doob-inequality}, we further have  
+Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \E[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By $\eqref{eq:doob-inequality}$, we further have  
 
 $$
 \begin{align*}
@@ -95,7 +95,7 @@ $$
 \end{align*} 
 $$
 
-where the second equality is due to the mutual indenpendency of $X_t$'s, and the last inequality is due to \eqref{eq:ele-prop-subgaussian}.
+where the second equality is due to the mutual indenpendency of $X_t$'s, and the last inequality is due to $\eqref{eq:ele-prop-subgaussian}$.
 
 The minimum is achieved when $\lambda = \frac{\eps}{ \sigma^2 n}$. So we finally get
 
@@ -103,7 +103,7 @@ $$
 \Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) \leq \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right),
 $$
 
-which is only one $n$-th of \eqref{eq:union-bound}!
+which is only one $n$-th of $\eqref{eq:union-bound}$!
 
 Note that Lemma 2 in [[2]](#lemma-2) gives the same statement. However, I think it is more direct to use Doob's martingale inequality.
 

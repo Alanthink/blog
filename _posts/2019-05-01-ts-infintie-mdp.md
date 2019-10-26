@@ -116,7 +116,7 @@ $$
 \end{align}
 $$
 
-where $p_0$ is the initial prior distribution of the Thompson Sampling policy. Note that \eqref{def:bayes-regret} is a weaker definiton than \eqref{def:regret} since $\mathcal{R}_T(\pi) \leq \mathcal{O}(f(\cdot))$ implies $\br_T(\pi) \leq \mathcal{O}(f(\cdot))$ and the other direction does not always hold, and it is a dedicated definition in the Bayesian learning literature.
+where $p_0$ is the initial prior distribution of the Thompson Sampling policy. Note that $\eqref{def:bayes-regret}$ is a weaker definiton than $\eqref{def:regret}$ since $\mathcal{R}_T(\pi) \leq \mathcal{O}(f(\cdot))$ implies $\br_T(\pi) \leq \mathcal{O}(f(\cdot))$ and the other direction does not always hold, and it is a dedicated definition in the Bayesian learning literature.
 
 ## Reference
 
