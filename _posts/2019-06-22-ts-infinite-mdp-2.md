@@ -5,8 +5,7 @@ title:  Bayesian regret of Thompson Sampling in infinite undiscounted MDP (part 
 categories:
   - math
 tags:
-  - infinite
-  - MDP
+  - infinite MDP
   - Thompson Sampling
   - undiscounted
 ---
@@ -16,22 +15,24 @@ If you are familiar with bandit literature, it is typical that we want to find a
 To make it possible, we must add some constraint to the underlying MDP. Otherwise, no policy could achieve such bound. For example, we construct a MDP as the following:
 * $\mathcal{S} = \\{ S_1, S_2 \\}$
 * $\mathcal{A} = \\{ a_1, a_2 \\}$
-* $c(s_1, a_1) = 5$, $c(s_1, a_2) = 10$, $c(s_2, a_1) = 10$, $c(s_2, a_2) = 10$
-* $\theta^{\star}(s_1 \cond s_1, a_1) = 1$, $\theta^{\star}(s_2 \cond s_1, a_2) = 1$, $\theta^{\star}(s_2 \cond s_2, a_1) = 1$, $\theta^{\star}(s_2 \cond s_2, a_2) = 1$
-* $s_0 = S_1$
+* $R(s_1, a_1) = 10$, $R(s_1, a_2) = 5$, $R(s_2, a_1) = 5$, $R(s_2, a_2) = 5$
+* $\theta(s_1 \cond s_1, a_1) = 1$, $\theta(s_2 \cond s_1, a_2) = 1$, $\theta(s_2 \cond s_2, a_1) = 1$, $\theta(s_2 \cond s_2, a_2) = 1$
+* $s_1 = S_1$
 
-![alt text](../../images/mdp.png "Bad MDP example")
+We can depict the aforementioned MDP in the following diagram:
 
-It is clear that the optimal policy is $\pi = a_1$. However, no policy could achieve this. We prove this by contradiction. Suppose such a policy exists. We call it $p_0$. Then during the first $T/2$ steps, it must not try action $a_2$. Otherwise, the regret would be at least $2.5T = \Omega(T)$. A key point is when we change the cost function a little bit such that $c(s_1, a_2) = 0$, $c(s_2, a_1) = 0$ and $c(s_2, a_2) = 0$, $p_0$ will not change its behavior in the first $T/2$ steps since it does not even try action $a_2$. Note that during the first $T/2$ steps, it already incurs a $\Omega(T)$ regret. A contradiction happens.
+![alt text](../../images/mdp.svg "Bad MDP example")
+
+It is clear that the optimal policy is $\pi = a_1$. However, no policy could achieve $\tilde{\mathcal{O}}(\sqrt{T})$. We prove this by contradiction. Suppose such a policy exists. We call it $\pi'$. Then during the first $T/2$ steps, it must not try action $a_2$. Otherwise, the regret would be at least $2.5T = \Omega(T)$. A key observation is that when we change the reward function such that $R(s_1, a_2) = 15$, $R(s_2, a_1) = 15$ and $R(s_2, a_2) = 15$, $\pi'$ will not change its behavior in the first $T/2$ steps since it does not even try action $a_2$. Note that during the first $T/2$ steps, it already incurs a $\Omega(T)$ regret. A contradiction happens.
 
 ## Weakly communicating MDP
 
-We say a MDP is *weakly communicating* if $\mathcal{S}$ can be divided into two groups $\mathcal{S}_1$ and $\mathcal{S}_2$ such that every state in $\mathcal{S}_1$ is transient under any stationary policy and every pair of two states in $\mathcal{S}_2$ can reach from each other under some stationary policy. It can be shown that
+We say a MDP is *weakly communicating* if $\mathcal{S}$ can be divided into two groups $\mathcal{S}_1$ and $\mathcal{S}_2$ such that every state in $\mathcal{S}_1$ is transient under any stationary deterministic markov policy and every pair of two states in $\mathcal{S}_2$ can reach from each other under some any stationary deterministic markov policy. It can be shown that
 <div class="theorem">
 The optimal policy of a weakly communicating MDP satisfies 
 
 $$
-J_{\star}(\theta^{\star}) + v(s) = \min_{a \in \mathcal{A}} \left\{ c(s, a) + \sum_{s' \in \mathcal{S}} \theta^{\star}(s' \cond s, a) v(s') \right\}
+\bar{R}^{*} + v(s) = \min_{a \in \mathcal{A}} \left\{ R(s, a) + \sum_{s' \in \mathcal{S}} \theta(s' \cond s, a) v(s') \right\}
 $$
 for any $s \in \mathcal{S}$.
 </div>
@@ -45,8 +46,8 @@ For the subsequent context, unless otherwise specified, the underlying MDP is as
 
 In the following step, I will present an algorithm originally introduced in [[1]](#OGNJ17) achieving such regret bound.
 
-Recall that the basic framework of Thompson Sampling is described in Algorithm 1 of [Bayesian regret of Thompson Sampling in infinite undiscounted MDP (part 1)]({{ site.baseurl }}{% post_url 2019-05-01-ts-infintie-mdp %}). To describe the stopping criteria of aforementioned algorithm, we need to introduce some notations. Let $T_k = t_{k + 1} - t_k$ be the length of the $k$-th episode and $N_t(s, a)$ be the number of visits of state-action pairs *before* time $t$. Basically, the algorithm states that episode $k$ finishes if one of the following happens:
-* $T_k > T_{k - 1}$; 
+Recall that the basic framework of Thompson Sampling is described in Algorithm 1 of [Bayesian regret of Thompson Sampling in infinite undiscounted MDP (part 1)]({{ site.baseurl }}{% post_url 2019-05-01-ts-infinite-mdp %}). To describe the stopping criteria of aforementioned algorithm in episode $k$, we need to introduce some notations. Let $N_t(s, a)$ be the number of visits of state-action pairs *before* time $t$. Basically, the algorithm states that episode $k$ finishes if one of the following happens:
+* $t - t_k > T_{k - 1}$; 
 * $\exists (s, a) \in \mathcal{S} \times \mathcal{A}, ~\text{s.t.}~ N_{t}(s, a) > 2 N_{t_k}(s, a)$.
 
 It can be shown that
