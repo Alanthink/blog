@@ -8,3 +8,5 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-algolia"
 end
+gem "rake", ">= 12.3.3"
+gem "nokogiri", ">= 1.10.8"
