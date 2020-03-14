@@ -1,11 +1,9 @@
 ---
-excerpt: ""
-comments: true
+layout:     post
 title: Generate new posts by shell scripts
-categories:
-  - cs
 tags:
-  - blog build
+  - blog
+  - script
 ---
 
 The script is modified from [@AamnahAkram](https://gist.github.com/aamnah/f89fca7906f66f6f6a12). For more related materials, you are suggested to visit the link.

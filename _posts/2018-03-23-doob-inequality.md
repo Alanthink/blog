@@ -1,13 +1,11 @@
 ---
-excerpt: ""
-comments: true
+layout: post
 title: An application of Doob's martingale inequality
-categories:
-  - math
+catalog: true
+mathjax: true
 tags:
-  - sub-gaussian 
-  - doob's inequality
-  - chernoff's method
+  - math
+  - probability
 ---
 
 ## Problem
@@ -16,7 +14,7 @@ Suppose we have a sequence of *i.i.d.* Gaussian random variables $X_t$'s with bo
 
 $$
 \begin{equation} \label{eq:problem}
-\left\{\max_{1 \leq t \leq n} S_t > \eps \right\}? 
+\left\{\max_{1 \leq t \leq n} S_t > \epsilon \right\}? 
 \end{equation}
 $$
 
@@ -30,24 +28,24 @@ An elementary property of $\sigma$-subgaussian random variable $X$ is
 
 $$
 \begin{equation} \label{eq:ele-prop-subgaussian}
-\E[ \exp( \lambda X ) ] \leq \exp( \lambda^2 \sigma^2  / 2 ).
+\mathbb{E}[ \exp( \lambda X ) ] \leq \exp( \lambda^2 \sigma^2  / 2 ).
 \end{equation}
 $$
 
 Also, it is useful to know the following facts:
 
 + $S_t$ is $\sqrt{t} \sigma$-subgaussian,
-+ and $\Pr( X > \eps ) \leq \exp\left( - \frac{ \eps^2 }{2\sigma^2} \right)$.
++ and $\Pr( X > \epsilon ) \leq \exp\left( - \frac{ \epsilon^2 }{2\sigma^2} \right)$.
 
 ## A naive way
 
 Obviously, we can use a union bound to give a naive bound. 
 
-For each $t$, since $S_t$ is $\sqrt{t} \sigma$-subgaussian we have $\Pr( S_t > \eps ) \leq \exp\left( - \frac{\eps^2}{2 t \sigma^2} \right)$. Via a union bound, we get
+For each $t$, since $S_t$ is $\sqrt{t} \sigma$-subgaussian we have $\Pr( S_t > \epsilon ) \leq \exp\left( - \frac{\epsilon^2}{2 t \sigma^2} \right)$. Via a union bound, we get
 
 $$
 \begin{equation*}
-\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) \leq \sum_{t = 1}^n \exp\left( - \frac{\eps^2}{2 t \sigma^2 } \right),
+\Pr\left( \max_{1 \leq t \leq n} S_t > \epsilon \right) \leq \sum_{t = 1}^n \exp\left( - \frac{\epsilon^2}{2 t \sigma^2 } \right),
 \end{equation*}
 $$
 
@@ -55,11 +53,11 @@ from which we can see the upper bound is no less then
 
 $$
 \begin{equation} \label{eq:union-bound}
-n \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right).
+n \exp\left( - \frac{\epsilon^2}{2 n \sigma^2 } \right).
 \end{equation}
 $$
 
-This bound is very loose. Later, you will see why it is useless. 
+This bound is very loose. Later, you will see the reason. 
 
 ## An alternative way
 
@@ -71,7 +69,7 @@ Suppose the sequence $T_1, \dots, T_n$ is a submartingale, taking non-negative v
 
 $$
 \begin{equation} \label{eq:doob-inequality}
-\Pr\left( \max_{1\leq t \leq n} T_t > \eps \right) \leq \frac{ \E[T_n] }{\eps}. 
+\Pr\left( \max_{1\leq t \leq n} T_t > \epsilon \right) \leq \frac{ \mathbb{E}[T_n] }{\epsilon}. 
 \end{equation}
 $$
 
@@ -81,26 +79,26 @@ Using standard Chernoff's method, for any $\lambda > 0$, we have
 
 $$
 \begin{align*}
-\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) & = \Pr\left( \max_{1 \leq t \leq n} \exp(\lambda S_t) > \exp( \lambda \eps) \right ).
+\Pr\left( \max_{1 \leq t \leq n} S_t > \epsilon \right) & = \Pr\left( \max_{1 \leq t \leq n} \exp(\lambda S_t) > \exp( \lambda \epsilon) \right ).
 \end{align*}
 $$
 
-Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \E[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By $\eqref{eq:doob-inequality}$, we further have  
+Since $\mathbb{E}[ \exp( \lambda X_t ) ] \geq \exp( \mathbb{E}[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By $\eqref{eq:doob-inequality}$, we further have  
 
 $$
 \begin{align*}
-\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) & \leq \frac{ \E[\exp(\lambda S_n )] }{ \exp(\lambda \eps) } \\
-& = \frac{ \prod_{t = 1}^n \E[ \exp(\lambda X_t )] }{ \exp(\lambda \eps) } \\
-& \leq \exp\left( \frac{\lambda^2 \sigma^2 n}{2} - \lambda \eps \right),
+\Pr\left( \max_{1 \leq t \leq n} S_t > \epsilon \right) & \leq \frac{ \mathbb{E}[\exp(\lambda S_n )] }{ \exp(\lambda \epsilon) } \\
+& = \frac{ \prod_{t = 1}^n \mathbb{E}[ \exp(\lambda X_t )] }{ \exp(\lambda \epsilon) } \\
+& \leq \exp\left( \frac{\lambda^2 \sigma^2 n}{2} - \lambda \epsilon \right),
 \end{align*} 
 $$
 
 where the second equality is due to the mutual indenpendency of $X_t$'s, and the last inequality is due to $\eqref{eq:ele-prop-subgaussian}$.
 
-The minimum is achieved when $\lambda = \frac{\eps}{ \sigma^2 n}$. So we finally get
+The minimum is achieved when $\lambda = \frac{\epsilon}{ \sigma^2 n}$. So we finally get
 
 $$
-\Pr\left( \max_{1 \leq t \leq n} S_t > \eps \right) \leq \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right),
+\Pr\left( \max_{1 \leq t \leq n} S_t > \epsilon \right) \leq \exp\left( - \frac{\epsilon^2}{2 n \sigma^2 } \right),
 $$
 
 which is only one $n$-th of $\eqref{eq:union-bound}$!
