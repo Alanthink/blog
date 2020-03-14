@@ -1,0 +1,10 @@
+I")<p>This is just a test post for testing latex formulas.</p>
+
+<h2 id="inline-formulas">Inline formulas</h2>
+
+<p>$e^{ix} = \cos x + i \sin x$.</p>
+
+<h2 id="display-formulas">Display formulas</h2>
+
+<script type="math/tex; mode=display">\sum_{i = 1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}.</script>
+:ET

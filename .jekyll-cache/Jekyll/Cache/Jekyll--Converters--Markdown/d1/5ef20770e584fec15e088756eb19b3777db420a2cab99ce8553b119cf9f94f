@@ -1,0 +1,2 @@
+I""<p>Let me first show their definitions from Wikipedia <a href="#chernoff-bound">[1]</a>. Note that the domain of random variables can be extended from $\{ 0, 1 \}$ to $[0, 1]$ just noting that $\mathbb{E} \left[ e^{tX_i} \right] \leq \mathbb{E}[X_i] \cdot e^t + (1 - \mathbb{E}[X_i])$.</p>
+:ET

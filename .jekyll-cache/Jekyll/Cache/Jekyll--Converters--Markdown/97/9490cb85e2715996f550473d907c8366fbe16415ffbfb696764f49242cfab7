@@ -1,0 +1,119 @@
+I"Ÿ<p>The script is modified from <a href="https://gist.github.com/aamnah/f89fca7906f66f6f6a12">@AamnahAkram</a>. For more related materials, you are suggested to visit the link.</p>
+
+<p>For the script provided here, I made three small modifications:</p>
+<ul>
+  <li>you can now create a new post using <code class="highlighter-rouge">./command.sh YOUR POST NAME</code> instead of explicitly specifying spaces using <code class="highlighter-rouge">./command.sh YOUR\ POST\ NAME</code>;</li>
+  <li>spaces in title are replaced with hyphens;</li>
+  <li>leading blank lines caused by <code class="highlighter-rouge">echo</code> are removed.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
+<span class="c"># About: Bash script to create new Jekyll posts</span>
+<span class="c"># Author: @AamnahAkram</span>
+<span class="c"># URL: https://gist.github.com/aamnah/f89fca7906f66f6f6a12 </span>
+<span class="c"># Description: This is a very basic version of the script</span>
+
+<span class="c"># VARIABLES</span>
+<span class="c">######################################################</span>
+
+<span class="c"># Define the post directory (where to create the file)</span>
+<span class="nv">JEKYLL_POSTS_DIR</span><span class="o">=</span><span class="s1">'./_posts/'</span>
+
+<span class="c"># Post title</span>
+<span class="nv">TITLE</span><span class="o">=</span><span class="s1">''</span>
+
+<span class="k">for </span>var <span class="k">in</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="k">do
+    </span><span class="nv">TITLE</span><span class="o">=</span><span class="nv">$TITLE</span><span class="s2">" </span><span class="nv">$var</span><span class="s2">"</span>
+<span class="k">done</span>
+
+<span class="c"># Replace spaces in title with hyphen</span>
+<span class="nv">TITLE_STRIPPED</span><span class="o">=</span><span class="k">${</span><span class="nv">TITLE</span><span class="p">// /-</span><span class="k">}</span>
+
+<span class="c"># Date</span>
+<span class="nv">DATE</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%Y-%m-%d<span class="sb">`</span>
+
+<span class="c"># Post Type (markdown, md, textile)</span>
+<span class="nv">TYPE</span><span class="o">=</span><span class="s1">'.md'</span>
+
+<span class="c"># File name structure</span>
+<span class="nv">FILENAME</span><span class="o">=</span><span class="k">${</span><span class="nv">DATE</span><span class="k">}${</span><span class="nv">TITLE_STRIPPED</span><span class="k">}${</span><span class="nv">TYPE</span><span class="k">}</span>
+
+
+<span class="c"># COMMANDS</span>
+<span class="c">#######################################################</span>
+
+<span class="c"># go to _posts directory</span>
+<span class="nb">cd</span> <span class="k">${</span><span class="nv">JEKYLL_POSTS_DIR</span><span class="k">}</span>
+
+<span class="c"># make a new post file</span>
+<span class="nb">touch</span> <span class="k">${</span><span class="nv">FILENAME</span><span class="k">}</span>
+
+<span class="c"># add YAML front matter and trim leading blank line</span>
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"
+---
+excerpt: </span><span class="se">\"\"</span><span class="s2">
+comments: true
+title: </span><span class="k">${</span><span class="nv">TITLE</span><span class="k">}</span><span class="s2">
+categories:
+  -
+tags:
+  -
+---
+"</span> | <span class="nb">sed</span> <span class="s1">'/./,$!d'</span> <span class="o">&gt;</span> <span class="k">${</span><span class="nv">FILENAME</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET
