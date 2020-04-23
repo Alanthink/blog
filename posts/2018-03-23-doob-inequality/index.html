@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>An Application of Doob&#39;s Martingale Inequality&nbsp;&ndash;&nbsp;Probability Space</title><link rel="stylesheet" href="/blog/css/core.min.1d9bd95d98498acf06bca35d2977547b884fcd8bd01f738d83d7e1e504d93c69f02c2c931f81c6dad7509331cb7764d6.css" integrity="sha384-HZvZXZhJis8GvKNdKXdUe4hPzYvQH3ONg9fh5QTZPGnwLCyTH4HG2tdQkzHLd2TW"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="An Application of Doob&#39;s Martingale Inequality" /><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/blog/"><span class="site name">Probability Space</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/blog/categories/">Categories</a><a class="nav item" href="/blog/tags/">Tags</a><a class="nav item" href="https://alanthink.github.io" target="_blank"><span class="iconfont icon-aboutus"></span>About</a>
+</nav></div></span></div><div class="site slogan"><span class="title">Record Learnings from Daily Life</span></div></section><div id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">An Application of Doob's Martingale Inequality</h1><p class="article date">Mar 23, 2018</p></section><article class="article markdown-body"><h2 id="problem">Problem</h2>
+<p>Suppose we have a sequence of <em>i.i.d.</em> Gaussian random variables $X_t$'s with bounded variance. Let $S_n = \sum_{t = 1}^n X_t$. How can we bound the probability of</p>
+<p>\begin{equation} \label{eq:problem}
+\left \{ \max_{1 \leq t \leq n} S_t &gt; \eps \right \}?
+\end{equation}</p>
+<h2 id="sub-gaussian-random-variables">Sub-gaussian random variables</h2>
+<p>To make this problem more realistic, it is always safe to loose Gaussian random variables to zero mean <em>sub-gaussian</em> random variables.</p>
+<p>Intuitively, sub-gaussian r.v.&lsquo;s have tails decreasing as fast as those of Gaussian r.v.&lsquo;s. Hence, most of the inequalities related to Gaussian r.v.&lsquo;s can be safely applied to sub-gaussians without any modifications! You are suggested to refer to <a href="http://www.stat.cmu.edu/~arinaldo/36788/subgaussians.pdf"target="_blank">Subgaussian random variables: An expository note</a> for more details. Here, we assume $X_t$ is a $\sigma$-subgaussian r.v. which is comparable to a Gaussian r.v. with variance $\sigma^2$.</p>
+<p>An elementary property of $\sigma$-subgaussian random variable $X$ is</p>
+<p>\begin{equation} \label{eq:ele-prop-subgaussian}
+\E[ \exp( \lambda X ) ] \leq \exp( \lambda^2 \sigma^2  / 2 ).
+\end{equation}</p>
+<p>Also, it is useful to know the following facts:</p>
+<ul>
+<li>$S_t$ is $\sqrt{t} \sigma$-subgaussian,</li>
+<li>and $\Pr( X &gt; \eps ) \leq \exp\left( - \frac{ \eps^2 }{2\sigma^2} \right)$.</li>
+</ul>
+<h2 id="a-naive-way">A naive way</h2>
+<p>Obviously, we can use a union bound to give a naive bound.</p>
+<p>For each $t$, since $S_t$ is $\sqrt{t} \sigma$-subgaussian we have $\Pr( S_t &gt; \eps ) \leq \exp\left( - \frac{\eps^2}{2 t \sigma^2} \right)$. Via a union bound, we get</p>
+<p>\begin{equation*}
+\Pr\left( \max_{1 \leq t \leq n} S_t &gt; \eps \right) \leq \sum_{t = 1}^n \exp\left( - \frac{\eps^2}{2 t \sigma^2 } \right),
+\end{equation*}</p>
+<p>from which we can see the upper bound is no less then</p>
+<p>\begin{equation} \label{eq:union-bound}
+n \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right).
+\end{equation}</p>
+<p>This bound is very loose. Later, you will see the reason.</p>
+<h2 id="an-alternative-way">An alternative way</h2>
+<h3 id="doobs-martingale-inequality">Doob&rsquo;s martingale inequality</h3>
+<p>The formal statement of Doob&rsquo;s martingale inequality can be found in <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. We restate it in the following.</p>
+<p>Suppose the sequence $T_1, \dots, T_n$ is a submartingale, taking non-negative values. Then it holds that</p>
+<p>\begin{equation} \label{eq:doob-inequality}
+\Pr\left( \max_{1\leq t \leq n} T_t &gt; \eps \right) \leq \frac{ \E[T_n] }{\eps}.
+\end{equation}</p>
+<p>With this tool in mind, we are now ready to bound $\eqref{eq:problem}$ in another way.</p>
+<p>Using standard Chernoff&rsquo;s method, for any $\lambda &gt; 0$, we have</p>
+<p>\begin{align*}
+\Pr\left( \max_{1 \leq t \leq n} S_t &gt; \eps \right) &amp; = \Pr\left( \max_{1 \leq t \leq n} \exp(\lambda S_t) &gt; \exp( \lambda \eps) \right ).
+\end{align*}</p>
+<p>Since $\E[ \exp( \lambda X_t ) ] \geq \exp( \E[ \lambda X_t )] = 1$, sequence $ \exp(\lambda S_1), \dots, \exp(\lambda S_t)$ is a submartingale. (This is a good exercise. You can validate it by yourself.) By $\eqref{eq:doob-inequality}$, we further have</p>
+<p>\begin{align*}
+\Pr\left( \max_{1 \leq t \leq n} S_t &gt; \eps \right) &amp; \leq \frac{ \E[\exp(\lambda S_n )] }{ \exp(\lambda \eps) } \\<br>
+&amp; = \frac{ \prod_{t = 1}^n \E[ \exp(\lambda X_t )] }{ \exp(\lambda \eps) } \\<br>
+&amp; \leq \exp\left( \frac{\lambda^2 \sigma^2 n}{2} - \lambda \eps \right),
+\end{align*}</p>
+<p>where the second equality is due to the mutual indenpendency of $X_t$'s, and the last inequality is due to $\eqref{eq:ele-prop-subgaussian}$.</p>
+<p>The minimum is achieved when $\lambda = \frac{\eps}{ \sigma^2 n}$. So we finally get</p>
+<p>$$
+\Pr\left( \max_{1 \leq t \leq n} S_t &gt; \eps \right) \leq \exp\left( - \frac{\eps^2}{2 n \sigma^2 } \right),
+$$</p>
+<p>which is only one $n$-th of $\eqref{eq:union-bound}$!</p>
+<p>Note that Lemma 2 in <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> gives the same statement. However, I think it is more direct to use Doob&rsquo;s martingale inequality.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://en.wikipedia.org/wiki/Doob%27s_martingale_inequality"target="_blank">Doob&rsquo;s martingale inequality</a>, Wikipedia. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Shengjia Zhao, Enze Zhou, Ashish Sabharwal, and Stefano Ermon. <a href="https://papers.nips.cc/paper/6493-adaptive-concentration-inequalities-for-sequential-decision-problems"target="_blank">Adaptive Concentration Inequalities for Sequential Decision Problems
+</a>. In NIPS, pages 1343–1351, 2016. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</article><section class="article labels"><a class="category" href=/blog/categories/math/>math</a><a class="tag" href=/blog/tags/probability/>probability</a></section></div><section class="article navigation"><p><a class="link" href="/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/"><span class="li">&larr;</span>Generate New Posts by Shell Scripts</a></p><p><a class="link" href="/blog/posts/2017-12-02-test/"><span class="li">&rarr;</span>Test</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "alanthink" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">©2020 Alanthink.</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$']],
+                tags: 'ams',
+                macros: {
+                    eps: "\\epsilon",
+                    E: "\\mathbb{E}",
+                },
+              },
+              svg: {
+                fontCache: 'global',
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-52772976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</body>
+
+</html>

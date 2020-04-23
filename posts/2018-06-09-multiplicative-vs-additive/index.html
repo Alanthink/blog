@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?&nbsp;&ndash;&nbsp;Probability Space</title><link rel="stylesheet" href="/blog/css/core.min.1d9bd95d98498acf06bca35d2977547b884fcd8bd01f738d83d7e1e504d93c69f02c2c931f81c6dad7509331cb7764d6.css" integrity="sha384-HZvZXZhJis8GvKNdKXdUe4hPzYvQH3ONg9fh5QTZPGnwLCyTH4HG2tdQkzHLd2TW"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?" /><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/blog/"><span class="site name">Probability Space</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/blog/categories/">Categories</a><a class="nav item" href="/blog/tags/">Tags</a><a class="nav item" href="https://alanthink.github.io" target="_blank"><span class="iconfont icon-aboutus"></span>About</a>
+</nav></div></span></div><div class="site slogan"><span class="title">Record Learnings from Daily Life</span></div></section><div id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?</h1><p class="article date">Jun 09, 2018</p></section><article class="article markdown-body"><p>Let me first show their definitions from Wikipedia <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Note that the domain of random variables can be extended from $\{ 0, 1 \}$ to $[0, 1]$ just noting that $\E \left[ e^{tX_i} \right] \leq \E[X_i] \cdot e^t + (1 - \E[X_i])$.</p>
+<h3 id="additive-chernoff-bound">Additive Chernoff bound</h3>
+<p>Suppose $X_1, \dots, X_n$ are <em>i.i.d.</em> random variables supported on $[0, 1]$. Let $\E[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have</p>
+<p>$$
+\Pr\left( \bar{X} &gt; \mu + \eps \right) \leq \left(  \left( \frac{\mu}{\mu + \eps} \right)^{\mu + \eps} \cdot \left( \frac{1 - \mu}{1 - \mu - \eps} \right)^{1 - \mu - \eps} \right)^n,
+$$</p>
+<p>and</p>
+<p>$$
+\Pr\left( \bar{X} &lt; \mu - \eps \right) \leq \left(  \left( \frac{\mu}{\mu - \eps} \right)^{\mu - \eps} \cdot \left( \frac{1 - \mu}{1 - \mu + \eps} \right)^{1 - \mu + \eps} \right)^n.
+$$</p>
+<h3 id="multiplicative-chernoff-bound">Multiplicative Chernoff Bound</h3>
+<p>Suppose $X_1, \dots, X_n$ are <em>i.i.d.</em> random variables supported on $[0, 1]$. Let $\E[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have</p>
+<p>$$
+\Pr\left( \bar{X} &gt; (1 + \delta)\mu \right) \leq \left( \frac{e^{\delta}}{ (1 + \delta)^{(1 + \delta)} } \right)^{n \mu},
+$$</p>
+<p>and</p>
+<p>$$
+\Pr\left( \bar{X} &lt; (1 - \delta)\mu \right) \leq \left( \frac{e^{-\delta}}{ (1 - \delta)^{(1 - \delta)} } \right)^{n \mu}.
+$$</p>
+<p>If you check their proofs in wikipedia, you will find that multiplicative Chernoff uses one more relaxation by $1 + x \leq e^x$. So technically additive chernoff bound is stronger than multiplicative chernoff bound which means I agree with the second answer in <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>However, in practice, usuallly we are not referring to this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left( \bar{X} &gt; \mu + \eps \right)$ is as the following:</p>
+<p>\begin{align*}
+\Pr\left( \bar{X} &gt; \mu + \eps \right) &amp; \leq \frac{ \E[\exp(t (X_i - \mu) )] }{ \exp(t n \eps) } \\<br>
+&amp; = \frac{ \prod_{i = 1}^n \E[ \exp(t (X_i - \mu) )] }{ \exp(tn \eps) } \\<br>
+&amp; \leq \exp( n(t^2/8 - t\eps ) ) ,
+\end{align*}</p>
+<p>where the last but second inequality is due to Hoeffding&rsquo;s lemma. By letting $t = 4\eps$, we get</p>
+<p>$$
+\Pr\left( \bar{X} &gt; \mu + \eps \right) \leq e^{ -2 n \eps^2 }.
+$$</p>
+<p>This is a weaker additive chernoff bound partly due to Hoeffding&rsquo;s lemma holds for any domain with length at most 1. So it does not make most use of domain $[0, 1]$. And if you are referring to this version of additive chernoff bound, then it is weaker than the multiplicative chernoff bound. This phenomenon can be observed when $\mu \ll 1$.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://en.wikipedia.org/wiki/Chernoff_bound#cite_note-1"target="_blank">Chernoff bound</a>, Wikipedia. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://math.stackexchange.com/questions/283487/is-the-multiplicative-chernoff-bound-stronger-than-additive-one"target="_blank">StackExchange</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</article><section class="article labels"><a class="category" href=/blog/categories/math/>math</a><a class="tag" href=/blog/tags/probability/>probability</a></section></div><section class="article navigation"><p><a class="link" href="/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/"><span class="li">&rarr;</span>Generate New Posts by Shell Scripts</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "alanthink" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">©2020 Alanthink.</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$']],
+                tags: 'ams',
+                macros: {
+                    eps: "\\epsilon",
+                    E: "\\mathbb{E}",
+                },
+              },
+              svg: {
+                fontCache: 'global',
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-52772976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</body>
+
+</html>

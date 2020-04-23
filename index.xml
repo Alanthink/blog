@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Probability Space</title>
+    <link>/blog/</link>
+    <description>Recent content on Probability Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>©2020 Alanthink.</copyright>
+    <lastBuildDate>Sat, 09 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Posts</title>
+      <link>/blog/posts/</link>
+      <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/posts/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

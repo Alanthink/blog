@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>cs on Probability Space</title>
+    <link>/blog/categories/cs/</link>
+    <description>Recent content in cs on Probability Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>©2020 Alanthink.</copyright>
+    <lastBuildDate>Tue, 27 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="/blog/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generate New Posts by Shell Scripts</title>
+      <link>/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/</guid>
+      <description>This is the shell script I use to create a new post.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
