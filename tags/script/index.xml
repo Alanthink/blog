@@ -52,10 +52,12 @@ $$&lt;/p&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chernoff_bound#cite_note-1&#34;target=&#34;_blank&#34;&gt;Chernoff bound&lt;/a&gt;, Wikipedia. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chernoff_bound#cite_note-1&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Chernoff bound&lt;/a&gt;
+, Wikipedia. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://math.stackexchange.com/questions/283487/is-the-multiplicative-chernoff-bound-stronger-than-additive-one&#34;target=&#34;_blank&#34;&gt;StackExchange&lt;/a&gt;. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://math.stackexchange.com/questions/283487/is-the-multiplicative-chernoff-bound-stronger-than-additive-one&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;StackExchange&lt;/a&gt;
+. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
@@ -69,7 +71,8 @@ $$&lt;/p&gt;
       
       <guid>https://alanthink.github.io/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/</guid>
       <description>&lt;p&gt;This is the shell script I use to create a new post.&lt;/p&gt;
-&lt;p&gt;The script is modified from &lt;a href=&#34;https://gist.github.com/aamnah/f89fca7906f66f6f6a12&#34;target=&#34;_blank&#34;&gt;@AamnahAkram&lt;/a&gt;. For more functions, you are suggested to visit the link.&lt;/p&gt;
+&lt;p&gt;The script is modified from &lt;a href=&#34;https://gist.github.com/aamnah/f89fca7906f66f6f6a12&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;@AamnahAkram&lt;/a&gt;
+. For more functions, you are suggested to visit the link.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
 &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# About: Bash script to create new Jekyll posts&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# Author: @AamnahAkram&lt;/span&gt;
@@ -138,7 +141,8 @@ touch &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&
 \end{equation}&lt;/p&gt;
 &lt;h2 id=&#34;sub-gaussian-random-variables&#34;&gt;Sub-gaussian random variables&lt;/h2&gt;
 &lt;p&gt;To make this problem more realistic, it is always safe to loose Gaussian random variables to zero mean &lt;em&gt;sub-gaussian&lt;/em&gt; random variables.&lt;/p&gt;
-&lt;p&gt;Intuitively, sub-gaussian r.v.&amp;lsquo;s have tails decreasing as fast as those of Gaussian r.v.&amp;lsquo;s. Hence, most of the inequalities related to Gaussian r.v.&amp;lsquo;s can be safely applied to sub-gaussians without any modifications! You are suggested to refer to &lt;a href=&#34;http://www.stat.cmu.edu/~arinaldo/36788/subgaussians.pdf&#34;target=&#34;_blank&#34;&gt;Subgaussian random variables: An expository note&lt;/a&gt; for more details. Here, we assume $X_t$ is a $\sigma$-subgaussian r.v. which is comparable to a Gaussian r.v. with variance $\sigma^2$.&lt;/p&gt;
+&lt;p&gt;Intuitively, sub-gaussian r.v.&amp;lsquo;s have tails decreasing as fast as those of Gaussian r.v.&amp;lsquo;s. Hence, most of the inequalities related to Gaussian r.v.&amp;lsquo;s can be safely applied to sub-gaussians without any modifications! You are suggested to refer to &lt;a href=&#34;http://www.stat.cmu.edu/~arinaldo/36788/subgaussians.pdf&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Subgaussian random variables: An expository note&lt;/a&gt;
+ for more details. Here, we assume $X_t$ is a $\sigma$-subgaussian r.v. which is comparable to a Gaussian r.v. with variance $\sigma^2$.&lt;/p&gt;
 &lt;p&gt;An elementary property of $\sigma$-subgaussian random variable $X$ is&lt;/p&gt;
 &lt;p&gt;\begin{equation} \label{eq:ele-prop-subgaussian}
 \E[ \exp( \lambda X ) ] \leq \exp( \lambda^2 \sigma^2  / 2 ).
@@ -188,11 +192,13 @@ $$&lt;/p&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Doob%27s_martingale_inequality&#34;target=&#34;_blank&#34;&gt;Doob&amp;rsquo;s martingale inequality&lt;/a&gt;, Wikipedia. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Doob%27s_martingale_inequality&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Doob&amp;rsquo;s martingale inequality&lt;/a&gt;
+, Wikipedia. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Shengjia Zhao, Enze Zhou, Ashish Sabharwal, and Stefano Ermon. &lt;a href=&#34;https://papers.nips.cc/paper/6493-adaptive-concentration-inequalities-for-sequential-decision-problems&#34;target=&#34;_blank&#34;&gt;Adaptive Concentration Inequalities for Sequential Decision Problems
-&lt;/a&gt;. In NIPS, pages 1343–1351, 2016. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Shengjia Zhao, Enze Zhou, Ashish Sabharwal, and Stefano Ermon. &lt;a href=&#34;https://papers.nips.cc/paper/6493-adaptive-concentration-inequalities-for-sequential-decision-problems&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Adaptive Concentration Inequalities for Sequential Decision Problems
+&lt;/a&gt;
+. In NIPS, pages 1343–1351, 2016. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
