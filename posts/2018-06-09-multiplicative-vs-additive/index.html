@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.160.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark"><title>Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?&nbsp;&ndash;&nbsp;Probability Space</title><link rel="stylesheet" href="/blog/css/core.min.d6e0bcf5609bd0f688e4c025ecb6fa96e202fe9c60e44f2b08102ae7295ff36bbac68365f6931a38f1473a45ac0a1d34.css" integrity="sha384-1uC89WCb0PaI5MAl7Lb6luIC/pxg5E8rCBAq5ylf82u6xoNl9pMaOPFHOkWsCh00"><meta name="twitter:card" content="summary" />
+<meta name="supported-color-schemes" content="light dark"><meta name="description" content="Let me first show their definitions from Wikipedia 1. Note that the domain of random variables can be extended from $\{ 0, 1 \}$ to $[0, 1]$ just noting that $\E \left[ e^{tX_i} \right] \leq \E[X_i] \cdot e^t &#43; (1 - \E[X_i])$.
+Additive Chernoff bound
+Suppose $X_1, \dots, X_n$ are i.i.d. random variables supported on $[0, 1]$. Let $\E[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have"><title>Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?&nbsp;&ndash;&nbsp;Probability Space</title><link rel="stylesheet" href="/blog/css/core.min.3d4a57fd32ee66fc2eb62e66af6b4b0e60f1370eaf8e34b86e280b2d92f1c049cb4d27a12df2f434bb24bad8038f3b26.css" integrity="sha384-PUpX/TLuZvwuti5mr2tLDmDxNw6vjjS4bigLLZLxwEnLTSehLfL0NLskutgDjzsm"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?" /><link rel="apple-touch-icon" sizes="180x180" href="/blog/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/blog/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/blog/img/favicon-16x16.png">
@@ -15,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body><section id="header">
     <div class="header wrap"><span class="header left-side"><a class="site home" href="/blog/"><span class="site name">Probability Space</span></a></span>
-        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/blog/categories/">Categories</a><a class="nav item" href="/blog/tags/">Tags</a><a class="nav item" href="https://alanthink.github.io" target="_blank"><i class="fa">&#xf015;</i>About</a>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="https://alanthink.github.io" target="_blank"><i class="fa">&#xf015;</i>About</a>
 </nav></div></span></div><div class="site slogan"><span class="title">Record Learnings from Daily Life</span></div></section><section id="content"><div class="article-container"><section class="article header">
     <h1 class="article title">Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?</h1><p class="article date">Jun 09, 2018</p></section><article class="article markdown-body"><p>Let me first show their definitions from Wikipedia <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Note that the domain of random variables can be extended from $\{ 0, 1 \}$ to $[0, 1]$ just noting that $\E \left[ e^{tX_i} \right] \leq \E[X_i] \cdot e^t + (1 - \E[X_i])$.</p>
 <h3 id="additive-chernoff-bound">Additive Chernoff bound</h3>
@@ -39,8 +41,8 @@ $$</p>
 <p>If you check their proofs in wikipedia, you will find that multiplicative Chernoff uses one more relaxation by $1 + x \leq e^x$. So technically additive chernoff bound is stronger than multiplicative chernoff bound which means I agree with the second answer in <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <p>However, in practice, usuallly we are not referring to this version of additive chernoff bound when we are talking about additive chernoff bound. A more often way to bound $\Pr\left( \bar{X} &gt; \mu + \eps \right)$ is as the following:</p>
 <p>\begin{align*}
-\Pr\left( \bar{X} &gt; \mu + \eps \right) &amp; \leq \frac{ \E[\exp(t (X_i - \mu) )] }{ \exp(t n \eps) } \\<br>
-&amp; = \frac{ \prod_{i = 1}^n \E[ \exp(t (X_i - \mu) )] }{ \exp(tn \eps) } \\<br>
+\Pr\left( \bar{X} &gt; \mu + \eps \right) &amp; \leq \frac{ \E[\exp(t (X_i - \mu) )] }{ \exp(t n \eps) } \\
+&amp; = \frac{ \prod_{i = 1}^n \E[ \exp(t (X_i - \mu) )] }{ \exp(tn \eps) } \\
 &amp; \leq \exp( n(t^2/8 - t\eps ) ) ,
 \end{align*}</p>
 <p>where the last but second inequality is due to Hoeffding&rsquo;s lemma. By letting $t = 4\eps$, we get</p>
@@ -48,24 +50,22 @@ $$</p>
 \Pr\left( \bar{X} &gt; \mu + \eps \right) \leq e^{ -2 n \eps^2 }.
 $$</p>
 <p>This is a weaker additive chernoff bound partly due to Hoeffding&rsquo;s lemma holds for any domain with length at most 1. So it does not make most use of domain $[0, 1]$. And if you are referring to this version of additive chernoff bound, then it is weaker than the multiplicative chernoff bound. This phenomenon can be observed when $\mu \ll 1$.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://en.wikipedia.org/wiki/Chernoff_bound#cite_note-1"target="_blank" rel="noopener noreferrer">Chernoff bound</a>
-, Wikipedia. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p><a href="https://en.wikipedia.org/wiki/Chernoff_bound#cite_note-1"target="_blank" rel="noopener noreferrer">Chernoff bound</a>, Wikipedia.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://math.stackexchange.com/questions/283487/is-the-multiplicative-chernoff-bound-stronger-than-additive-one"target="_blank" rel="noopener noreferrer">StackExchange</a>
-. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:2">
+<p><a href="https://math.stackexchange.com/questions/283487/is-the-multiplicative-chernoff-bound-stronger-than-additive-one"target="_blank" rel="noopener noreferrer">StackExchange</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
-</article><section class="article labels"><a class="category" href=/blog/categories/math/>math</a><a class="tag" href=/blog/tags/probability/>probability</a></section>
+</div>
+</article><section class="article labels"><a class="category" href=/categories/math/>math</a><a class="tag" href=/tags/probability/>probability</a></section>
 </div>
 <div class="article bottom"><section class="article navigation"><p><a class="link" href="/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/"><span class="iconfont icon-article"></span>Generate New Posts by Shell Scripts</a></p></section><section class="article discussion"><div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -86,8 +86,8 @@ $$</p>
     <p class="copyright">©2020 Alanthink.</p>
     <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
         target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
-        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div>
-</section><script>
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div></section><script>
+            
             MathJax = {
               tex: {
                 inlineMath: [['$', '$']],
@@ -110,17 +110,6 @@ $$</p>
         </script>
         <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-        </script>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-52772976-3', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-</body>
+        </script></body>
 
 </html>
