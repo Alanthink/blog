@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.160.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark"><meta name="description" content=""><title>Posts&nbsp;&ndash;&nbsp;Probability Space</title><link rel="stylesheet" href="/blog/css/core.min.3d4a57fd32ee66fc2eb62e66af6b4b0e60f1370eaf8e34b86e280b2d92f1c049cb4d27a12df2f434bb24bad8038f3b26.css" integrity="sha384-PUpX/TLuZvwuti5mr2tLDmDxNw6vjjS4bigLLZLxwEnLTSehLfL0NLskutgDjzsm"><link rel="alternate" type="application/rss+xml" href="/blog/posts/index.xml" title="Probability Space" /><meta name="twitter:card" content="summary" />
+<meta name="supported-color-schemes" content="light dark"><meta name="description" content=""><title>Posts&nbsp;&ndash;&nbsp;Probability Space</title><link rel="stylesheet" href="/blog/css/core.min.5d3cf7bbdb71ec4f05ac1558420401fc28e6baeb11402927f0de005d36172739419e55d9694509d7ca1b246d36e6d0d1.css" integrity="sha384-XTz3u9tx7E8FrBVYQgQB/CjmuusRQCkn8N4AXTYXJzlBnlXZaUUJ18obJG025tDR"><link rel="alternate" type="application/rss+xml" href="/blog/posts/index.xml" title="Probability Space" /><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Posts" /><link rel="apple-touch-icon" sizes="180x180" href="/blog/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/blog/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/blog/img/favicon-16x16.png">
@@ -20,29 +20,29 @@
         
         <a class="note" href="/blog/posts/2018-06-09-multiplicative-vs-additive/">
         
-            <p class="note title">Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?</p><p class="note date">Jun 09, 2018</p><p class="note content">Let me first show their definitions from Wikipedia 1. Note that the domain of random variables can be extended from $\{ 0, 1 \}$ to $[0, 1]$ just noting that $\E \left[ e^{tX_i} \right] \leq \E[X_i] \cdot e^t + (1 - \E[X_i])$.
+            <p class="note title" >Multiplicative Chernoff v.s. Additive Chernoff: Which One Is Stronger?</p><p class="note date">Jun 09, 2018</p><p class="note content">Let me first show their definitions from Wikipedia 1. Note that the domain of random variables can be extended from $\{ 0, 1 \}$ to $[0, 1]$ just noting that $\E \left[ e^{tX_i} \right] \leq \E[X_i] \cdot e^t + (1 - \E[X_i])$.
 Additive Chernoff bound Suppose $X_1, \dots, X_n$ are i.i.d. random variables supported on $[0, 1]$. Let $\E[X_i] = \mu$ and $\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then, we have
-<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/blog/categories/math/">math</a><a class="tag" href="/blog/tags/probability/">probability</a></p></li><li class="item">
+<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="https://alanthink.github.io/blog/categories/math/">math</a><a class="tag" href="https://alanthink.github.io/blog/tags/probability/">probability</a></p></li><li class="item">
         
         <a class="note" href="/blog/posts/2018-03-27-generate-new-posts-by-shell-scripts/">
         
-            <p class="note title">Generate New Posts by Shell Scripts</p><p class="note date">Mar 27, 2018</p><p class="note content">This is the shell script I use to create a new post.
-<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/blog/categories/cs/">cs</a><a class="tag" href="/blog/tags/blog/">blog</a><a class="tag" href="/blog/tags/script/">script</a></p></li><li class="item">
+            <p class="note title" >Generate New Posts by Shell Scripts</p><p class="note date">Mar 27, 2018</p><p class="note content">This is the shell script I use to create a new post.
+<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="https://alanthink.github.io/blog/categories/cs/">cs</a><a class="tag" href="https://alanthink.github.io/blog/tags/blog/">blog</a><a class="tag" href="https://alanthink.github.io/blog/tags/script/">script</a></p></li><li class="item">
         
         <a class="note" href="/blog/posts/2018-03-23-doob-inequality/">
         
-            <p class="note title">An Application of Doob's Martingale Inequality</p><p class="note date">Mar 23, 2018</p><p class="note content">Problem Suppose we have a sequence of i.i.d. Gaussian random variables $X_t$&rsquo;s with bounded variance. Let $S_n = \sum_{t = 1}^n X_t$. How can we bound the probability of
+            <p class="note title" >An Application of Doob's Martingale Inequality</p><p class="note date">Mar 23, 2018</p><p class="note content">Problem Suppose we have a sequence of i.i.d. Gaussian random variables $X_t$&rsquo;s with bounded variance. Let $S_n = \sum_{t = 1}^n X_t$. How can we bound the probability of
 \begin{equation} \label{eq:problem} \left \{ \max_{1 \leq t \leq n} S_t &gt; \eps \right \}? \end{equation}
 Sub-gaussian random variables To make this problem more realistic, it is always safe to loose Gaussian random variables to zero mean sub-gaussian random variables.
 Intuitively, sub-gaussian r.v.&rsquo;s have tails decreasing as fast as those of Gaussian r.v.&rsquo;s. Hence, most of the inequalities related to Gaussian r.v.&rsquo;s can be safely applied to sub-gaussians without any modifications! You are suggested to refer to Subgaussian random variables: An expository note for more details. Here, we assume $X_t$ is a $\sigma$-subgaussian r.v. which is comparable to a Gaussian r.v. with variance $\sigma^2$.
-<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/blog/categories/math/">math</a><a class="tag" href="/blog/tags/probability/">probability</a></p></li><li class="item">
+<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="https://alanthink.github.io/blog/categories/math/">math</a><a class="tag" href="https://alanthink.github.io/blog/tags/probability/">probability</a></p></li><li class="item">
         
         <a class="note" href="/blog/posts/2017-12-02-test/">
         
-            <p class="note title">Test</p><p class="note date">Dec 02, 2017</p><p class="note content">This is a post for testing latex formulas.
+            <p class="note title" >Test</p><p class="note date">Dec 02, 2017</p><p class="note content">This is a post for testing latex formulas.
 Inline formulas $e^{ix} = \cos x + i \sin x$.
 Display formulas $$ \sum_{i = 1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}. $$
-</p></a><p class="note labels"><a class="category" href="/blog/categories/math/">math</a></p></li></ul></section><section id="footer"><div class="footer-wrap">
+</p></a><p class="note labels"><a class="category" href="https://alanthink.github.io/blog/categories/math/">math</a></p></li></ul></section><section id="footer"><div class="footer-wrap">
     <p class="copyright">©2020 Alanthink.</p>
     <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
         target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
